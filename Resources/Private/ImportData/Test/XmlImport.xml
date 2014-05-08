@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!--
+	This data set is designed primarily for testing usage of XPath.
+	The "item" nodes should be imported, but only those found within
+	a "node" node with attribute "type" equals to "relevant".
+-->
+<structure>
+	<node type="relevant">
+		<item index="1">Foo</item>
+	</node>
+	<node type="irrelevant">
+		<item index="2">Not relevant</item>
+	</node>
+	<node type="relevant">
+		<item index="3">Bar</item>
+	</node>
+	<item index="4" type="relevant">Out of structure</item>
+</structure>
