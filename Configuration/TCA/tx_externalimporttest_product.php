@@ -20,7 +20,7 @@ return array(
 				'data' => 'xml',
 				'nodetype' => 'products',
 				'reference_uid' => 'sku',
-				'priority' => 5000,
+				'priority' => 5100,
 				'description' => 'Products catalogue'
 			)
 		)
@@ -57,8 +57,30 @@ return array(
 				)
 			)
 		),
+		'tags' => array(
+			'exclude' => 0,
+			'label' => 'Tags',
+			'config' => array(
+				'type' => 'select',
+				'size' => '5',
+				'foreign_table' => 'tx_externalimporttest_tag',
+				'foreign_table_where' => 'ORDER BY name',
+				'minitems' => 0,
+				'maxitems' => 9999
+			),
+			'external' => array(
+				0 => array(
+					'xpath' => './self::*[@type="current"]/tags',
+					'mapping' => array(
+						'table' => 'tx_externalimporttest_tag',
+						'reference_field' => 'code',
+						'multipleValuesSeparator' => ','
+					)
+				)
+			)
+		)
 	),
 	'types' => array(
-		'0' => array('showitem' => 'name,sku')
+		'0' => array('showitem' => 'name,sku,tags')
 	),
 );

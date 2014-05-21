@@ -1,0 +1,4 @@
+"Code";"Name"
+"attack";"Weapons"
+"defense";"Armor & Shields"
+"metal";"Metallic objects"
