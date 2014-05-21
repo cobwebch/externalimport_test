@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!--
+	This data set is designed for testing the followign features:
+
+	1) Usage of XPath
+	   The "item" nodes should be imported, but only those found within
+	   a "products" node with attribute "type" equals to "current".
+
+	2) Comma-separated multiple values
+	   Each tag should correspond to an entry in a separate DB table
+-->
+<catalogue>
+	<products type="current">
+		<item sku="000001">Long sword</item>
+		<tags>attack,metal</tags>
+	</products>
+	<products type="obsolete">
+		<item index="000002">Solar cream</item>
+	</products>
+	<products type="current">
+		<item sku="000005">Chain mail</item>
+		<tags>defense,metal</tags>
+	</products>
+	<item sku="000014" type="current">Out of structure</item>
+</catalogue>

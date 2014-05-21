@@ -10,3 +10,9 @@ should provide the basis for running unit tests of "external_import".
 
 If this does not make any sense, start by looking at
 http://typo3.org/extensions/repository/view/external_import.
+
+Credits
+-------
+
+The icons used come from the Fugue set by Yusuke Kamiyamane. You can find
+this wonderful resources at http://p.yusukekamiyamane.com/.
