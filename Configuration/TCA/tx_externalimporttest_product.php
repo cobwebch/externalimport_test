@@ -11,7 +11,7 @@ return array(
 		'default_sortby' => 'ORDER BY name',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_product.png',
 		'external' => array(
-			0 => array(
+			'base' => array(
 				'connector' => 'feed',
 				'parameters' => array(
 					'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Products.xml',
@@ -21,7 +21,24 @@ return array(
 				'nodetype' => 'products',
 				'reference_uid' => 'sku',
 				'priority' => 5100,
+				// NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
+				'disabledOperations' => 'delete',
 				'description' => 'Products catalogue'
+			),
+			'more' => array(
+				'connector' => 'feed',
+				'parameters' => array(
+					'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/MoreProducts.xml',
+					'encoding' => 'utf8'
+				),
+				'data' => 'xml',
+				'nodetype' => 'products',
+				'reference_uid' => 'sku',
+				'priority' => 5110,
+				'useColumnIndex' => 'base',
+				// NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
+				'disabledOperations' => 'delete',
+				'description' => 'Alternate products catalogue'
 			)
 		)
 	),
@@ -37,7 +54,7 @@ return array(
 				'size' => '10'
 			),
 			'external' => array(
-				0 => array(
+				'base' => array(
 					'xpath' => './self::*[@type="current"]/item',
 					'attribute' => 'sku'
 				)
@@ -52,7 +69,7 @@ return array(
 				'eval' => 'required,trim',
 			),
 			'external' => array(
-				0 => array(
+				'base' => array(
 					'xpath' => './self::*[@type="current"]/item',
 				)
 			)
@@ -69,7 +86,7 @@ return array(
 				'maxitems' => 9999
 			),
 			'external' => array(
-				0 => array(
+				'base' => array(
 					'xpath' => './self::*[@type="current"]/tags',
 					'mapping' => array(
 						'table' => 'tx_externalimporttest_tag',

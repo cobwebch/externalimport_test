@@ -2,3 +2,5 @@
 "attack";"Weapons"
 "defense";"Armor & Shields"
 "metal";"Metallic objects"
+"fun";"Fun, free time"
+"food";"Food & Drinks"
