@@ -56,6 +56,7 @@ return array(
 			'external' => array(
 				0 => array(
 					'field' => 'Name',
+					'trim' => TRUE
 				)
 			)
 		),
