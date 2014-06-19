@@ -39,6 +39,21 @@ return array(
 				// NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
 				'disabledOperations' => 'delete',
 				'description' => 'Alternate products catalogue'
+			),
+			'stable' => array(
+				'connector' => 'feed',
+				'parameters' => array(
+					'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/StableProducts.xml',
+					'encoding' => 'utf8'
+				),
+				'data' => 'xml',
+				'nodetype' => 'products',
+				'reference_uid' => 'sku',
+				'priority' => 5120,
+				'useColumnIndex' => 'base',
+				// NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
+				'disabledOperations' => 'update,delete',
+				'description' => 'Stable products catalogue (no update)'
 			)
 		)
 	),

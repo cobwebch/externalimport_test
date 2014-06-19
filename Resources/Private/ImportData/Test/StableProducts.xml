@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!--
+	This data set is similar to Products.xml.
+	It is used with both "update" and "delete" operations
+	disabled, simulating a data set that doesn't change.
+-->
+<catalogue>
+	<products type="current">
+		<item sku="000201">Old iron kettle</item>
+		<tags>food,attack</tags>
+	</products>
+	<products type="current">
+		<item sku="000202">Old frying pan</item>
+		<tags>food,defense</tags>
+	</products>
+</catalogue>
