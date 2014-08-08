@@ -21,7 +21,6 @@ return array(
 					'skip_rows' => 1
 				),
 				'data' => 'array',
-				'nodetype' => 'products',
 				'reference_uid' => 'code',
 				'priority' => 5000,
 				'description' => 'List of tags'

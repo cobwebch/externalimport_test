@@ -25,11 +25,10 @@ return array(
 					'skip_rows' => 1
 				),
 				'data' => 'array',
-				'nodetype' => 'products',
 				'reference_uid' => 'bundle_code',
 				'additional_fields' => 'position',
 				'priority' => 5200,
-				'description' => 'List of Bundles'
+				'description' => 'List of bundles'
 			)
 		)
 	),
