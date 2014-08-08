@@ -30,6 +30,38 @@ CREATE TABLE tx_externalimporttest_tag (
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
+
+#
+# Table structure for orders
+#
+CREATE TABLE tx_externalimporttest_order (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
+	order_date int(11) DEFAULT '0' NOT NULL,
+	products int(11) DEFAULT '0' NOT NULL,
+	client_id varchar(255) DEFAULT '' NOT NULL,
+	order_id varchar(255) DEFAULT '' NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid)
+);
+
+#
+# Table structure for order details
+#
+CREATE TABLE tx_externalimporttest_order_product_mm (
+	uid_local int(11) NOT NULL,
+	uid_foreign int(11) NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+	quantity int(11) NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
 #
 # Table structure for bundles
 #
