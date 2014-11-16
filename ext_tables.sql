@@ -10,6 +10,7 @@ CREATE TABLE tx_externalimporttest_product (
 	sku varchar(255) DEFAULT '' NOT NULL,
 	name varchar(255) DEFAULT '' NOT NULL,
 	tags varchar(255) DEFAULT '' NOT NULL,
+	attributes text,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid)

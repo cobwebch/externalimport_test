@@ -14,6 +14,11 @@
 	<products type="current">
 		<item sku="000001">Long sword</item>
 		<tags>attack,metal</tags>
+		<attributes>
+			<quality>Robust</quality>
+			<quality>Stylish</quality>
+			<quality>Reliable</quality>
+		</attributes>
 	</products>
 	<products type="obsolete">
 		<item index="000002">Solar cream</item>
@@ -21,6 +26,10 @@
 	<products type="current">
 		<item sku="000005">Chain mail</item>
 		<tags>defense,metal</tags>
+		<attributes>
+			<quality>Not too cumbersome</quality>
+			<quality>Lets the air flow</quality>
+		</attributes>
 	</products>
 	<item sku="000014" type="current">Out of structure</item>
 </catalogue>

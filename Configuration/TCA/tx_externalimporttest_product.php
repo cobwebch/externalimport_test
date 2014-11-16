@@ -110,9 +110,28 @@ return array(
 					)
 				)
 			)
+		),
+		'attributes' => array(
+			'exclude' => 0,
+			'label' => 'Attributes',
+			'config' => array(
+				'type' => 'text',
+				'rows' => 5,
+				'cols' => 40
+			),
+			'external' => array(
+				'base' => array(
+					'xpath' => './self::*[@type="current"]/attributes',
+					'xmlValue' => TRUE,
+					'userFunc' => array(
+						'class' => 'Cobweb\ExternalimportTest\UserFunction\Transformation',
+						'method' => 'processAttributes'
+					)
+				)
+			)
 		)
 	),
 	'types' => array(
-		'0' => array('showitem' => 'name,sku,tags')
+		'0' => array('showitem' => 'name,sku,tags,attributes')
 	),
 );
