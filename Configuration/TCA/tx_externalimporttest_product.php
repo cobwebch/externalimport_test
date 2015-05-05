@@ -14,7 +14,7 @@ return array(
 			'base' => array(
 				'connector' => 'feed',
 				'parameters' => array(
-					'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Products.xml',
+					'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
 					'encoding' => 'utf8'
 				),
 				'data' => 'xml',
