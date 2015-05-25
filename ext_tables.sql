@@ -91,3 +91,10 @@ CREATE TABLE tx_externalimporttest_bundle_product_mm (
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
+
+#
+# Extend pages table for product-to-pages import
+#
+CREATE TABLE pages (
+	product_sku varchar(255) DEFAULT '' NOT NULL
+);
