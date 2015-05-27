@@ -14,6 +14,7 @@
 	<products type="current">
 		<item sku="000001">Long sword</item>
 		<tags>attack,metal</tags>
+		<category>USEFUL</category>
 		<attributes>
 			<quality>Robust</quality>
 			<quality>Stylish</quality>
@@ -25,6 +26,7 @@
 	</products>
 	<products type="current">
 		<item sku="000005">Chain mail</item>
+		<category>USEFUL</category>
 		<tags>defense,metal</tags>
 		<attributes>
 			<quality>Not too cumbersome</quality>

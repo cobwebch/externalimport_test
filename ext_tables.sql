@@ -98,3 +98,10 @@ CREATE TABLE tx_externalimporttest_bundle_product_mm (
 CREATE TABLE pages (
 	product_sku varchar(255) DEFAULT '' NOT NULL
 );
+
+#
+# Extend sys_category table for product catgories import
+#
+CREATE TABLE sys_category (
+	external_key varchar(255) DEFAULT '' NOT NULL
+);

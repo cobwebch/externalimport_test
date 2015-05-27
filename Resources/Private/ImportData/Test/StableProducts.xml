@@ -12,5 +12,6 @@
 	<products type="current">
 		<item sku="000202">Old frying pan</item>
 		<tags>food,defense</tags>
+		<category>NICE</category>
 	</products>
 </catalogue>

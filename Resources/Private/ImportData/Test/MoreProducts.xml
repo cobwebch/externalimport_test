@@ -12,5 +12,6 @@
 	<products type="current">
 		<item sku="000102">Barbarian welcome mat</item>
 		<tags>fun,defense</tags>
+		<category>USELESS</category>
 	</products>
 </catalogue>
