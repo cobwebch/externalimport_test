@@ -95,6 +95,7 @@ return array(
 		 * doesn't work with external_import in its current state, as it would
 		 * imply creating nested records during import (orders and order-product
 		 * relations). This is currently not possible.
+		 * Anyway, this structure is useful for testing a number of features related to MM tables.
 		 */
 		'products' => array(
 			'exclude' => 0,
@@ -103,7 +104,11 @@ return array(
 				'type' => 'select',
 				'foreign_table' => 'tx_externalimporttest_product',
 				'foreign_table_where' => 'ORDER BY name',
-				'MM' => 'tx_externalimporttest_order_product_mm',
+				'MM' => 'tx_externalimporttest_order_items_mm',
+				'MM_match_fields' => array(
+					'tablenames' => 'tx_externalimporttest_product',
+					'fieldname' => 'products'
+				),
 				'size' => 10,
 				'minitems' => 1,
 					'maxitems' => 9990

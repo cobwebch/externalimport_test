@@ -53,11 +53,13 @@ CREATE TABLE tx_externalimporttest_order (
 #
 # Table structure for order details
 #
-CREATE TABLE tx_externalimporttest_order_product_mm (
-	uid_local int(11) NOT NULL,
-	uid_foreign int(11) NOT NULL,
+CREATE TABLE tx_externalimporttest_order_items_mm (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(255) DEFAULT '' NOT NULL,
+	fieldname varchar(255) DEFAULT '' NOT NULL,
 	sorting int(11) DEFAULT '0' NOT NULL,
-	quantity int(11) NOT NULL,
+	quantity int(11) DEFAULT '0' NOT NULL,
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
@@ -84,8 +86,8 @@ CREATE TABLE tx_externalimporttest_bundle (
 # Table structure for order bundle items
 #
 CREATE TABLE tx_externalimporttest_bundle_product_mm (
-	uid_local int(11) NOT NULL,
-	uid_foreign int(11) NOT NULL,
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
 	sorting int(11) DEFAULT '0' NOT NULL,
 
 	KEY uid_local (uid_local),
@@ -100,7 +102,7 @@ CREATE TABLE pages (
 );
 
 #
-# Extend sys_category table for product catgories import
+# Extend sys_category table for product categories import
 #
 CREATE TABLE sys_category (
 	external_key varchar(255) DEFAULT '' NOT NULL
