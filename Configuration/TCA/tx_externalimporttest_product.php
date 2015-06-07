@@ -54,6 +54,23 @@ return array(
 				// NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
 				'disabledOperations' => 'update,delete',
 				'description' => 'Stable products catalogue (no update)'
+			),
+			// Tests import with MM_opposite_field property
+			'products_for_stores' => array(
+				'connector' => 'csv',
+				'parameters' => array(
+					'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsForStores.csv',
+					'delimiter' => "\t",
+					'text_qualifier' => '',
+					'encoding' => 'utf8',
+					'skip_rows' => 1
+				),
+				'data' => 'array',
+				'reference_uid' => 'sku',
+				'additional_fields' => 'qty',
+				'priority' => 5410,
+				'disabledOperations' => 'insert,delete',
+				'description' => 'List of products for stores'
 			)
 		)
 	),
@@ -72,6 +89,9 @@ return array(
 				'base' => array(
 					'xpath' => './self::*[@type="current"]/item',
 					'attribute' => 'sku'
+				),
+				'products_for_stores' => array(
+					'field' => 'product'
 				)
 			)
 		),
@@ -129,9 +149,37 @@ return array(
 					)
 				)
 			)
+		),
+		'stores' => array(
+			'exclude' => 0,
+			'label' => 'Stores',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_externalimporttest_store',
+				'foreign_table_where' => 'ORDER BY name',
+				'MM' => 'tx_externalimporttest_store_product_mm',
+				'MM_opposite_field' => 'products',
+				'size' => 10,
+				'minitems' => 1,
+				'maxitems' => 9990
+			),
+			'external' => array(
+				'products_for_stores' => array(
+					'field' => 'store',
+					'MM' => array(
+						'mapping' => array(
+							'table' => 'tx_externalimporttest_store',
+							'reference_field' => 'store_code'
+						),
+						'additional_fields' => array(
+							'stock' => 'qty'
+						)
+					)
+				)
+			)
 		)
 	),
 	'types' => array(
-		'0' => array('showitem' => 'name,sku,tags,attributes')
+		'0' => array('showitem' => 'name,sku,tags,attributes,stores')
 	),
 );

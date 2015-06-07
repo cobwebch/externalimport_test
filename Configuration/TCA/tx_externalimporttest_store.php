@@ -2,41 +2,40 @@
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
 /*
- * Bundles are used to test MM relations.
- * They also use an additional field in the MM relation to test sorting.
+ * Stores are used to test MM relations with opposite fields.
  */
 return array(
 	'ctrl' => array(
-		'title' => 'Bundles',
+		'title' => 'Stores',
 		'label' => 'name',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'default_sortby' => 'ORDER BY name',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_bundle.png',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_store.png',
 		'external' => array(
 			0 => array(
 				'connector' => 'csv',
 				'parameters' => array(
-					'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Bundles.csv',
+					'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Stores.csv',
 					'delimiter' => ';',
 					'text_qualifier' => '',
 					'encoding' => 'utf8',
 					'skip_rows' => 1
 				),
 				'data' => 'array',
-				'reference_uid' => 'bundle_code',
-				'additional_fields' => 'position',
-				'priority' => 5200,
-				'description' => 'List of bundles'
+				'reference_uid' => 'store_code',
+				'additional_fields' => 'qty',
+				'priority' => 5400,
+				'description' => 'List of stores'
 			)
 		)
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'bundle_code,name'
+		'showRecordFieldList' => 'store_code,name'
 	),
 	'columns' => array(
-		'bundle_code' => array(
+		'store_code' => array(
 			'exclude' => 0,
 			'label' => 'Code',
 			'config' => array(
@@ -72,7 +71,7 @@ return array(
 				'type' => 'select',
 				'foreign_table' => 'tx_externalimporttest_product',
 				'foreign_table_where' => 'ORDER BY name',
-				'MM' => 'tx_externalimporttest_bundle_product_mm',
+				'MM' => 'tx_externalimporttest_store_product_mm',
 				'size' => 10,
 				'minitems' => 1,
 				'maxitems' => 9990
@@ -85,7 +84,9 @@ return array(
 							'table' => 'tx_externalimporttest_product',
 							'reference_field' => 'sku'
 						),
-						'sorting' => 'position'
+						'additional_fields' => array(
+							'stock' => 'qty'
+						)
 					)
 				)
 			)
