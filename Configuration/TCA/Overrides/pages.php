@@ -4,6 +4,8 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 /**
  * Import of product into pages is used to test the creation of pages,
  * in particular the reverse order that must be applied.
+ *
+ * For deleting already imported pages: DELETE FROM pages WHERE product_sku > ''
  */
 $newColumn = array(
 	'product_sku' => array(
@@ -37,4 +39,11 @@ $GLOBALS['TCA']['pages']['ctrl']['external']['product_pages'] = array(
 );
 $GLOBALS['TCA']['pages']['columns']['title']['external']['product_pages'] = array(
 	'field' => 'name'
+);
+$GLOBALS['TCA']['pages']['columns']['pid']['external']['product_pages'] = array(
+	'field' => 'parent_sku',
+	'mapping' => array(
+		'table' => 'pages',
+		'reference_field' => 'product_sku'
+	)
 );

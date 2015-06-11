@@ -1,4 +1,8 @@
-sku;name
-001;First product
-002;Second product
-003;Third product
+sku;name;parent_sku
+001;Product 1;
+002;Product 2;
+003;Product 3;
+010;Sub-product 1.1;001
+011;Sub-product 1.2;001
+030;Sub-product 3.1;003
+
