@@ -27,14 +27,14 @@ $EM_CONF[$_EXTKEY] = array (
   'clearCacheOnLoad' => 1,
   'lockType' => '',
   'author_company' => '',
-  'version' => '0.1.0',
+  'version' => '0.2.0',
   'constraints' =>
   array (
     'depends' =>
     array (
-      'external_import' => '2.0.0-0.0.0',
-      'svconnector_feed' => '1.0.0-0.0.0',
-      'typo3' => '6.1.0-6.2.99',
+      'external_import' => '3.0.0-0.0.0',
+      'svconnector_feed' => '2.0.0-0.0.0',
+      'typo3' => '7.6.0-7.6.99',
     ),
     'conflicts' =>
     array (
