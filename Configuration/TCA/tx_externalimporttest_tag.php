@@ -21,7 +21,7 @@ return array(
 					'skip_rows' => 1
 				),
 				'data' => 'array',
-				'reference_uid' => 'code',
+				'referenceUid' => 'code',
 				'priority' => 5000,
 				'description' => 'List of tags'
 			)

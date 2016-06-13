@@ -21,7 +21,7 @@ return array(
                                 ),
                                 'data' => 'xml',
                                 'nodetype' => 'products',
-                                'reference_uid' => 'sku',
+                                'referenceUid' => 'sku',
                                 'priority' => 5100,
                                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
                                 'disabledOperations' => 'delete',
@@ -35,7 +35,7 @@ return array(
                                 ),
                                 'data' => 'xml',
                                 'nodetype' => 'products',
-                                'reference_uid' => 'sku',
+                                'referenceUid' => 'sku',
                                 'priority' => 5110,
                                 'useColumnIndex' => 'base',
                                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
@@ -50,7 +50,7 @@ return array(
                                 ),
                                 'data' => 'xml',
                                 'nodetype' => 'products',
-                                'reference_uid' => 'sku',
+                                'referenceUid' => 'sku',
                                 'priority' => 5120,
                                 'useColumnIndex' => 'base',
                                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
@@ -68,8 +68,8 @@ return array(
                                         'skip_rows' => 1
                                 ),
                                 'data' => 'array',
-                                'reference_uid' => 'sku',
-                                'additional_fields' => 'qty',
+                                'referenceUid' => 'sku',
+                                'additionalFields' => 'qty',
                                 'priority' => 5410,
                                 'disabledOperations' => 'insert,delete',
                                 'description' => 'List of products for stores'
@@ -182,7 +182,7 @@ return array(
                                                         'table' => 'tx_externalimporttest_store',
                                                         'reference_field' => 'store_code'
                                                 ),
-                                                'additional_fields' => array(
+                                                'additionalFields' => array(
                                                         'stock' => 'qty'
                                                 )
                                         )

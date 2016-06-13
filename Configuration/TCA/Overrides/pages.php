@@ -33,7 +33,7 @@ $GLOBALS['TCA']['pages']['ctrl']['external']['product_pages'] = array(
 		'skip_rows' => 1
 	),
 	'data' => 'array',
-	'reference_uid' => 'product_sku',
+	'referenceUid' => 'product_sku',
 	'priority' => 5800,
 	'description' => 'Product pages'
 );

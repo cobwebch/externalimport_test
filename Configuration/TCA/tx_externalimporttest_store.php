@@ -24,8 +24,8 @@ return array(
 					'skip_rows' => 1
 				),
 				'data' => 'array',
-				'reference_uid' => 'store_code',
-				'additional_fields' => 'qty',
+				'referenceUid' => 'store_code',
+				'additionalFields' => 'qty',
 				'priority' => 5400,
 				'description' => 'List of stores'
 			)
@@ -84,7 +84,7 @@ return array(
 							'table' => 'tx_externalimporttest_product',
 							'reference_field' => 'sku'
 						),
-						'additional_fields' => array(
+						'additionalFields' => array(
 							'stock' => 'qty'
 						)
 					)

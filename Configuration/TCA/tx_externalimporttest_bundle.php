@@ -25,8 +25,8 @@ return array(
 					'skip_rows' => 1
 				),
 				'data' => 'array',
-				'reference_uid' => 'bundle_code',
-				'additional_fields' => 'position',
+				'referenceUid' => 'bundle_code',
+				'additionalFields' => 'position',
 				'priority' => 5200,
 				'description' => 'List of bundles'
 			)

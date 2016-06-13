@@ -30,7 +30,7 @@ $GLOBALS['TCA']['sys_category']['ctrl']['external']['product_categories'] = arra
 		'skip_rows' => 1
 	),
 	'data' => 'array',
-	'reference_uid' => 'external_key',
+	'referenceUid' => 'external_key',
 	'priority' => 5050,
 	'description' => 'Product categories'
 );
