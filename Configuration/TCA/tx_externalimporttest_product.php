@@ -79,6 +79,8 @@ return array(
                                 'connector' => 'foo',
                                 'data' => 'bar',
                                 'dataHandler' => \Cobweb\ExternalImport\Importer::class,
+                                'pid' => 0,
+                                'useColumnIndex' => 'baz',
                                 'description' => 'Configuration with errors for testing the configuration validator'
                         )
                 )
