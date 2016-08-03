@@ -62,7 +62,7 @@ return array(
 				0 => array(
 					'field' => 'date',
 					'userFunc' => array(
-						'class' => 'EXT:external_import/samples/class.tx_externalimport_transformations.php:tx_externalimport_transformations',
+						'class' => \Cobweb\ExternalImport\Transformation\DateTimeTransformation::class,
 						'method' => 'parseDate',
 						'params' => array(
 							'enforceTimeZone' => TRUE
