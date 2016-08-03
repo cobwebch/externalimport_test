@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+	<InvoiceLine>
+		<cbc:ID>A1</cbc:ID>
+		<cbc:LineExtensionAmount currencyID="USD">100.00</cbc:LineExtensionAmount>
+		<cac:OrderReference>
+			<cbc:ID>000001</cbc:ID>
+		</cac:OrderReference>
+	</InvoiceLine>
+	<InvoiceLine>
+		<cbc:ID>A2</cbc:ID>
+		<cbc:LineExtensionAmount currencyID="GBP">50.00</cbc:LineExtensionAmount>
+		<cac:OrderReference>
+			<cbc:ID>000001</cbc:ID>
+		</cac:OrderReference>
+	</InvoiceLine>
+	<InvoiceLine>
+		<cbc:ID>B1</cbc:ID>
+		<cbc:LineExtensionAmount currencyID="CHF">250.00</cbc:LineExtensionAmount>
+		<cac:OrderReference>
+			<cbc:ID>000002</cbc:ID>
+		</cac:OrderReference>
+	</InvoiceLine>
+</Invoice>

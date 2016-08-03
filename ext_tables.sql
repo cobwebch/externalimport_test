@@ -127,6 +127,24 @@ CREATE TABLE tx_externalimporttest_store_product_mm (
 );
 
 #
+# Table structure for invoices
+#
+CREATE TABLE tx_externalimporttest_invoice (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
+	invoice_id varchar(255) DEFAULT '' NOT NULL,
+	order_id int(11) DEFAULT '0' NOT NULL,
+	amount double(11,2) DEFAULT '0.0' NOT NULL,
+	currency char(3) DEFAULT 'USD' NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid)
+);
+
+#
 # Extend pages table for product-to-pages import
 #
 CREATE TABLE pages (
