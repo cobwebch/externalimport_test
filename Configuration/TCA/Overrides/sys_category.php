@@ -12,7 +12,7 @@ $newColumn = array(
 		),
 		'external' => array(
 			'product_categories' => array(
-				'field' => 'key'
+				'field' => 0
 			)
 		)
 	)
@@ -26,8 +26,7 @@ $GLOBALS['TCA']['sys_category']['ctrl']['external']['product_categories'] = arra
 		'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Categories.csv',
 		'delimiter' => ';',
 		'text_qualifier' => '',
-		'encoding' => 'utf8',
-		'skip_rows' => 1
+		'encoding' => 'utf8'
 	),
 	'data' => 'array',
 	'referenceUid' => 'external_key',
@@ -35,5 +34,5 @@ $GLOBALS['TCA']['sys_category']['ctrl']['external']['product_categories'] = arra
 	'description' => 'Product categories'
 );
 $GLOBALS['TCA']['sys_category']['columns']['title']['external']['product_categories'] = array(
-	'field' => 'name'
+	'field' => 1
 );
