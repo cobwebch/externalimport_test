@@ -74,14 +74,27 @@ return array(
                                 'disabledOperations' => 'insert,delete',
                                 'description' => 'List of products for stores'
                         ),
-                        // Configuration with errors, for testing the configuration validator
-                        'full_of_errors' => array(
+                        // Configuration with errors, for testing the control configuration validator
+                        'control_configuration_errors' => array(
                                 'connector' => 'foo',
                                 'data' => 'bar',
                                 'dataHandler' => \Cobweb\ExternalImport\Importer::class,
                                 'pid' => 0,
                                 'useColumnIndex' => 'baz',
-                                'description' => 'Configuration with errors for testing the configuration validator'
+                                'description' => 'Configuration with errors for testing the control configuration validator'
+                        ),
+                        // Configuration with errors, for testing the columns configuration validator
+                        'column_configuration_errors' => array(
+                                'connector' => 'feed',
+                                'parameters' => array(
+                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
+                                        'encoding' => 'utf8'
+                                ),
+                                'data' => 'xml',
+                                'nodetype' => 'products',
+                                'referenceUid' => 'sku',
+                                'priority' => 5100,
+                                'description' => 'Configuration with errors for testing the columns configuration validator'
                         )
                 )
         ),
@@ -103,7 +116,8 @@ return array(
                                 ),
                                 'products_for_stores' => array(
                                         'field' => 'product'
-                                )
+                                ),
+                                'column_configuration_errors' => array()
                         )
                 ),
                 'name' => array(
@@ -117,6 +131,10 @@ return array(
                         'external' => array(
                                 'base' => array(
                                         'xpath' => './self::*[@type="current"]/item',
+                                ),
+                                'column_configuration_errors' => array(
+                                        'value' => 42,
+                                        'field' => 'foo'
                                 )
                         )
                 ),
