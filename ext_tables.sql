@@ -12,6 +12,7 @@ CREATE TABLE tx_externalimporttest_product (
 	tags varchar(255) DEFAULT '' NOT NULL,
 	attributes text,
 	stores int(11) DEFAULT '0' NOT NULL,
+	categories int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid)

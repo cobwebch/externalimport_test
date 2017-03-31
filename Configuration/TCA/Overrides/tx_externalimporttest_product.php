@@ -1,10 +1,10 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+if (!defined ('TYPO3_MODE')) 	{
     die ('Access denied.');
 }
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-        $_EXTKEY,
+        'externalimport_test',
         'tx_externalimporttest_product'
 );
 
