@@ -36,3 +36,10 @@ $GLOBALS['TCA']['sys_category']['ctrl']['external']['product_categories'] = arra
 $GLOBALS['TCA']['sys_category']['columns']['title']['external']['product_categories'] = array(
 	'field' => 1
 );
+$GLOBALS['TCA']['sys_category']['columns']['parent']['external']['product_categories'] = array(
+	'field' => 2,
+    'mapping' => array(
+            'table' => 'sys_category',
+            'reference_field' => 'external_key'
+    )
+);

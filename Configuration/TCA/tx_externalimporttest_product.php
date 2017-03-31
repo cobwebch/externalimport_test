@@ -189,8 +189,8 @@ return array(
                                 'MM' => 'tx_externalimporttest_store_product_mm',
                                 'MM_opposite_field' => 'products',
                                 'size' => 10,
-                                'minitems' => 1,
-                                'maxitems' => 9990
+                                'minitems' => 0,
+                                'maxitems' => 9999
                         ),
                         'external' => array(
                                 'products_for_stores' => array(

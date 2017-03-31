@@ -25,19 +25,19 @@ $EM_CONF[$_EXTKEY] = array (
   'clearCacheOnLoad' => 1,
   'lockType' => '',
   'author_company' => '',
-  'version' => '0.4.0',
-  'constraints' => 
+  'version' => '0.5.0',
+  'constraints' =>
   array (
-    'depends' => 
+    'depends' =>
     array (
       'external_import' => '3.0.0-0.0.0',
       'svconnector_feed' => '2.0.0-0.0.0',
       'typo3' => '7.6.0-7.6.99',
     ),
-    'conflicts' => 
+    'conflicts' =>
     array (
     ),
-    'suggests' => 
+    'suggests' =>
     array (
       'devlog' => '',
     ),

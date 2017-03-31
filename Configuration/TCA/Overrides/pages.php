@@ -1,5 +1,7 @@
 <?php
-if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
+if (!defined('TYPO3_MODE')) {
+    die ('Access denied.');
+}
 
 /**
  * Import of product into pages is used to test the creation of pages,
