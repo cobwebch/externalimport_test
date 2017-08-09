@@ -23,6 +23,12 @@ return array(
                                 'nodetype' => 'products',
                                 'referenceUid' => 'sku',
                                 'priority' => 5100,
+                                'customSteps' => array(
+                                        array(
+                                                'class' => \Cobweb\ExternalimportTest\Step\EnhanceDataStep::class,
+                                                'position' => 'after:' . \Cobweb\ExternalImport\Step\ValidateDataStep::class
+                                        )
+                                ),
                                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
                                 'disabledOperations' => 'delete',
                                 'description' => 'Products catalogue'
