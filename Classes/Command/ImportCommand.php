@@ -60,7 +60,7 @@ class ImportCommand extends Command
 
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         $importer = $objectManager->get(Importer::class);
-        $result = $importer->importData(
+        $result = $importer->import(
                 'tx_externalimporttest_tag',
                 'api',
                 [

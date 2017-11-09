@@ -14,7 +14,7 @@ namespace Cobweb\ExternalimportTest\Hook;
  * The TYPO3 project - inspiring people to share!
  */
 
-use Cobweb\ExternalImport\Importer;
+use Cobweb\ExternalImport\Domain\Model\Configuration;
 
 /**
  * Example hooks for the 'externalimport_test' extension
@@ -28,10 +28,10 @@ class Hooks
      * Pre-processes the given connector parameters.
      *
      * @param array $parameters List of connector parameters
-     * @param Importer $importer Back-reference to the calling object
+     * @param Configuration $configuration Reference to the current Configuration object
      * @return array Modified parameters
      */
-    public function processParameters($parameters, $importer)
+    public function processParameters($parameters, $configuration)
     {
         foreach ($parameters as $key => $value) {
             // Remove the "SILLYMARKER" string from the "uri" parameter, if it exists

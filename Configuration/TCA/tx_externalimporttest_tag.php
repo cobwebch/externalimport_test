@@ -3,8 +3,8 @@ if (!defined('TYPO3_MODE')) {
     die ('Access denied.');
 }
 
-return array(
-        'ctrl' => array(
+return [
+        'ctrl' => [
                 'title' => 'Tags',
                 'label' => 'name',
                 'tstamp' => 'tstamp',
@@ -12,68 +12,72 @@ return array(
                 'cruser_id' => 'cruser_id',
                 'default_sortby' => 'ORDER BY name',
                 'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_tag.png',
-                'external' => array(
-                        0 => array(
+                'external' => [
+                        0 => [
                                 'connector' => 'csv',
-                                'parameters' => array(
+                                'parameters' => [
                                         'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Tags.txt',
                                         'delimiter' => ';',
                                         'text_qualifier' => '"',
                                         'encoding' => 'utf8',
                                         'skip_rows' => 1
-                                ),
+                                ],
                                 'data' => 'array',
                                 'referenceUid' => 'code',
                                 'priority' => 5000,
                                 'description' => 'List of tags'
-                        ),
-                        'api' => array(
+                        ],
+                        'api' => [
                                 'data' => 'array',
                                 'referenceUid' => 'code',
                                 'description' => 'Tags defined via the import API'
-                        )
-                )
-        ),
-        'interface' => array(
+                        ]
+                ]
+        ],
+        'interface' => [
                 'showRecordFieldList' => 'code,name'
-        ),
-        'columns' => array(
-                'code' => array(
+        ],
+        'columns' => [
+                'code' => [
                         'exclude' => 0,
                         'label' => 'Code',
-                        'config' => array(
+                        'config' => [
                                 'type' => 'input',
                                 'size' => '10'
-                        ),
-                        'external' => array(
-                                0 => array(
+                        ],
+                        'external' => [
+                                0 => [
                                         'field' => 'Code'
-                                ),
-                                'api' => array(
+                                ],
+                                'api' => [
                                         'field' => 'code'
-                                )
-                        )
-                ),
-                'name' => array(
+                                ]
+                        ]
+                ],
+                'name' => [
                         'exclude' => 0,
                         'label' => 'Name',
-                        'config' => array(
+                        'config' => [
                                 'type' => 'input',
                                 'size' => '30',
                                 'eval' => 'required,trim',
-                        ),
-                        'external' => array(
-                                0 => array(
+                        ],
+                        'external' => [
+                                0 => [
                                         'field' => 'Name',
-                                        'trim' => true
-                                ),
-                                'api' => array(
+                                        'transformations' => [
+                                                10 => [
+                                                        'trim' => true
+                                                ]
+                                        ]
+                                ],
+                                'api' => [
                                         'field' => 'name'
-                                )
-                        )
-                ),
-        ),
-        'types' => array(
-                '0' => array('showitem' => 'name,code')
-        ),
-);
+                                ]
+                        ]
+                ],
+        ],
+        'types' => [
+                '0' => ['showitem' => 'name,code']
+        ],
+];

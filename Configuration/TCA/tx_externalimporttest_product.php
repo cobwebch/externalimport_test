@@ -3,8 +3,8 @@ if (!defined('TYPO3_MODE')) {
     die ('Access denied.');
 }
 
-return array(
-        'ctrl' => array(
+return [
+        'ctrl' => [
                 'title' => 'Products',
                 'label' => 'name',
                 'tstamp' => 'tstamp',
@@ -12,33 +12,33 @@ return array(
                 'cruser_id' => 'cruser_id',
                 'default_sortby' => 'ORDER BY name',
                 'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_product.png',
-                'external' => array(
-                        'base' => array(
+                'external' => [
+                        'base' => [
                                 'connector' => 'feed',
-                                'parameters' => array(
+                                'parameters' => [
                                         'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
                                         'encoding' => 'utf8'
-                                ),
+                                ],
                                 'data' => 'xml',
                                 'nodetype' => 'products',
                                 'referenceUid' => 'sku',
                                 'priority' => 5100,
-                                'customSteps' => array(
-                                        array(
+                                'customSteps' => [
+                                        [
                                                 'class' => \Cobweb\ExternalimportTest\Step\EnhanceDataStep::class,
                                                 'position' => 'after:' . \Cobweb\ExternalImport\Step\ValidateDataStep::class
-                                        )
-                                ),
+                                        ]
+                                ],
                                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
                                 'disabledOperations' => 'delete',
                                 'description' => 'Products catalogue'
-                        ),
-                        'more' => array(
+                        ],
+                        'more' => [
                                 'connector' => 'feed',
-                                'parameters' => array(
+                                'parameters' => [
                                         'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/MoreProducts.xml',
                                         'encoding' => 'utf8'
-                                ),
+                                ],
                                 'data' => 'xml',
                                 'nodetype' => 'products',
                                 'referenceUid' => 'sku',
@@ -47,13 +47,13 @@ return array(
                                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
                                 'disabledOperations' => 'delete',
                                 'description' => 'Alternate products catalogue'
-                        ),
-                        'stable' => array(
+                        ],
+                        'stable' => [
                                 'connector' => 'feed',
-                                'parameters' => array(
+                                'parameters' => [
                                         'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/StableProducts.xml',
                                         'encoding' => 'utf8'
-                                ),
+                                ],
                                 'data' => 'xml',
                                 'nodetype' => 'products',
                                 'referenceUid' => 'sku',
@@ -62,133 +62,145 @@ return array(
                                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
                                 'disabledOperations' => 'update,delete',
                                 'description' => 'Stable products catalogue (no update)'
-                        ),
+                        ],
                         // Tests import with MM_opposite_field property
-                        'products_for_stores' => array(
+                        'products_for_stores' => [
                                 'connector' => 'csv',
-                                'parameters' => array(
+                                'parameters' => [
                                         'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsForStores.csv',
                                         'delimiter' => "\t",
                                         'text_qualifier' => '',
                                         'encoding' => 'utf8',
                                         'skip_rows' => 1
-                                ),
+                                ],
                                 'data' => 'array',
                                 'referenceUid' => 'sku',
                                 'additionalFields' => 'qty',
                                 'priority' => 5410,
                                 'disabledOperations' => 'insert,delete',
                                 'description' => 'List of products for stores'
-                        ),
+                        ],
                         // Configuration with errors, for testing the control configuration validator
-                        'control_configuration_errors' => array(
+                        'control_configuration_errors' => [
                                 'connector' => 'foo',
                                 'data' => 'bar',
                                 'dataHandler' => \Cobweb\ExternalImport\Importer::class,
                                 'pid' => 0,
                                 'useColumnIndex' => 'baz',
                                 'description' => 'Configuration with errors for testing the control configuration validator'
-                        ),
+                        ],
                         // Configuration with errors, for testing the columns configuration validator
-                        'column_configuration_errors' => array(
+                        'column_configuration_errors' => [
                                 'connector' => 'feed',
-                                'parameters' => array(
+                                'parameters' => [
                                         'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
                                         'encoding' => 'utf8'
-                                ),
+                                ],
                                 'data' => 'xml',
                                 'nodetype' => 'products',
                                 'referenceUid' => 'sku',
                                 'priority' => 5100,
                                 'description' => 'Configuration with errors for testing the columns configuration validator'
-                        )
-                )
-        ),
-        'interface' => array(
+                        ]
+                ]
+        ],
+        'interface' => [
                 'showRecordFieldList' => 'sku,name'
-        ),
-        'columns' => array(
-                'sku' => array(
+        ],
+        'columns' => [
+                'sku' => [
                         'exclude' => 0,
                         'label' => 'SKU',
-                        'config' => array(
+                        'config' => [
                                 'type' => 'input',
                                 'size' => '10'
-                        ),
-                        'external' => array(
-                                'base' => array(
+                        ],
+                        'external' => [
+                                'base' => [
                                         'xpath' => './self::*[@type="current"]/item',
                                         'attribute' => 'sku'
-                                ),
-                                'products_for_stores' => array(
+                                ],
+                                'products_for_stores' => [
                                         'field' => 'product'
-                                ),
-                                'column_configuration_errors' => array()
-                        )
-                ),
-                'name' => array(
+                                ],
+                                'column_configuration_errors' => []
+                        ]
+                ],
+                'name' => [
                         'exclude' => 0,
                         'label' => 'Name',
-                        'config' => array(
+                        'config' => [
                                 'type' => 'input',
                                 'size' => '30',
                                 'eval' => 'required,trim',
-                        ),
-                        'external' => array(
-                                'base' => array(
+                        ],
+                        'external' => [
+                                'base' => [
                                         'xpath' => './self::*[@type="current"]/item',
-                                ),
-                                'column_configuration_errors' => array(
-                                        'value' => 42,
-                                        'field' => 'foo'
-                                )
-                        )
-                ),
-                'tags' => array(
+                                ],
+                                'column_configuration_errors' => [
+                                        'field' => 'foo',
+                                        'transformations' => [
+                                                10 => [
+                                                        'value' => 42
+                                                ]
+                                        ]
+                                ]
+                        ]
+                ],
+                'tags' => [
                         'exclude' => 0,
                         'label' => 'Tags',
-                        'config' => array(
+                        'config' => [
                                 'type' => 'select',
                                 'size' => '5',
                                 'foreign_table' => 'tx_externalimporttest_tag',
                                 'foreign_table_where' => 'ORDER BY name',
                                 'minitems' => 0,
                                 'maxitems' => 9999
-                        ),
-                        'external' => array(
-                                'base' => array(
+                        ],
+                        'external' => [
+                                'base' => [
                                         'xpath' => './self::*[@type="current"]/tags',
-                                        'mapping' => array(
-                                                'table' => 'tx_externalimporttest_tag',
-                                                'reference_field' => 'code',
-                                                'multipleValuesSeparator' => ','
-                                        )
-                                )
-                        )
-                ),
-                'attributes' => array(
+                                        'transformations' => [
+                                                10 => [
+                                                        'mapping' => [
+                                                                'table' => 'tx_externalimporttest_tag',
+                                                                'reference_field' => 'code',
+                                                                'multipleValuesSeparator' => ','
+                                                        ]
+                                                ]
+                                        ]
+                                ]
+                        ]
+                ],
+                'attributes' => [
                         'exclude' => 0,
                         'label' => 'Attributes',
-                        'config' => array(
+                        'config' => [
                                 'type' => 'text',
                                 'rows' => 5,
                                 'cols' => 40
-                        ),
-                        'external' => array(
-                                'base' => array(
+                        ],
+                        'external' => [
+                                'base' => [
                                         'xpath' => './self::*[@type="current"]/attributes',
                                         'xmlValue' => true,
-                                        'userFunc' => array(
-                                                'class' => 'Cobweb\ExternalimportTest\UserFunction\Transformation',
-                                                'method' => 'processAttributes'
-                                        )
-                                )
-                        )
-                ),
-                'stores' => array(
+                                        'transformations' => [
+                                                10 => [
+                                                        'userFunc' => [
+                                                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                                                'method' => 'processAttributes'
+                                                        ]
+                                                ]
+                                        ]
+                                ]
+                        ]
+                ],
+                'stores' => [
                         'exclude' => 0,
                         'label' => 'Stores',
-                        'config' => array(
+                        'config' => [
                                 'type' => 'select',
                                 'foreign_table' => 'tx_externalimporttest_store',
                                 'foreign_table_where' => 'ORDER BY name',
@@ -197,24 +209,28 @@ return array(
                                 'size' => 10,
                                 'minitems' => 0,
                                 'maxitems' => 9999
-                        ),
-                        'external' => array(
-                                'products_for_stores' => array(
+                        ],
+                        'external' => [
+                                'products_for_stores' => [
                                         'field' => 'store',
-                                        'MM' => array(
-                                                'mapping' => array(
-                                                        'table' => 'tx_externalimporttest_store',
-                                                        'reference_field' => 'store_code'
-                                                ),
-                                                'additionalFields' => array(
+                                        'MM' => [
+                                                'transformations' => [
+                                                        10 => [
+                                                                'mapping' => [
+                                                                        'table' => 'tx_externalimporttest_store',
+                                                                        'reference_field' => 'store_code'
+                                                                ],
+                                                        ]
+                                                ],
+                                                'additionalFields' => [
                                                         'stock' => 'qty'
-                                                )
-                                        )
-                                )
-                        )
-                )
-        ),
-        'types' => array(
-                '0' => array('showitem' => 'name,sku,tags,attributes,stores')
-        ),
-);
+                                                ]
+                                        ]
+                                ]
+                        ]
+                ]
+        ],
+        'types' => [
+                '0' => ['showitem' => 'name,sku,tags,attributes,stores']
+        ],
+];

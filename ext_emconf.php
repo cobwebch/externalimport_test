@@ -30,9 +30,9 @@ $EM_CONF[$_EXTKEY] = array (
   array (
     'depends' =>
     array (
-      'external_import' => '3.0.0-0.0.0',
+      'external_import' => '4.0.0-0.0.0',
       'svconnector_feed' => '2.0.0-0.0.0',
-      'typo3' => '7.6.0-7.6.99',
+      'typo3' => '7.6.0-8.9.99',
     ),
     'conflicts' =>
     array (

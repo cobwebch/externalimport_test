@@ -40,7 +40,7 @@ class TagsPreprocessor
      */
     public function preprocessRawRecordset($records, $importer)
     {
-        if ($importer->getTableName() === 'tx_externalimporttest_tag') {
+        if ($importer->getExternalConfiguration()->getTable() === 'tx_externalimporttest_tag') {
             $numRecords = count($records);
             for ($i = 0; $i < $numRecords; $i++) {
                 if (strpos($records[$i]['name'], '*') !== false) {

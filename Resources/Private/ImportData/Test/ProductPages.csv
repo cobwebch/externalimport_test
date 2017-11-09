@@ -5,4 +5,5 @@ sku;name;parent_sku
 010;Sub-product 1.1;001
 011;Sub-product 1.2;001
 030;Sub-product 3.1;003
-
+0111;Sub-sub-product 1.2.1;011
+0112;Sub-sub-product 1.2.2;011

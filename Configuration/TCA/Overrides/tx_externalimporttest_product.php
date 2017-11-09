@@ -8,10 +8,14 @@ if (!defined ('TYPO3_MODE')) 	{
         'tx_externalimporttest_product'
 );
 
-$GLOBALS['TCA']['tx_externalimporttest_product']['columns']['categories']['external']['base'] = array(
+$GLOBALS['TCA']['tx_externalimporttest_product']['columns']['categories']['external']['base'] = [
         'xpath' => './self::*[@type="current"]/category',
-        'mapping' => array(
-                'table' => 'sys_category',
-                'reference_field' => 'external_key'
-        )
-);
+        'transformations' => [
+                10 => [
+                        'mapping' => [
+                                'table' => 'sys_category',
+                                'reference_field' => 'external_key'
+                        ]
+                ]
+        ]
+];
