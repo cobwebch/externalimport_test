@@ -43,7 +43,7 @@ return [
                         'label' => 'Invoice ID',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '20',
+                                'size' => 20,
                                 'eval' => 'required,trim',
                         ],
                         'external' => [
@@ -75,7 +75,7 @@ return [
                                                 10 => [
                                                         'mapping' => [
                                                                 'table' => 'tx_externalimporttest_order',
-                                                                'reference_field' => 'order_id'
+                                                                'referenceField' => 'order_id'
                                                         ]
                                                 ]
                                         ]
@@ -87,7 +87,7 @@ return [
                         'label' => 'Amount',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '20',
+                                'size' => 20,
                                 'eval' => 'required,double2',
                         ],
                         'external' => [
@@ -102,7 +102,7 @@ return [
                         'label' => 'Currency',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '5',
+                                'size' => 5,
                                 'eval' => 'required,trim',
                         ],
                         'external' => [

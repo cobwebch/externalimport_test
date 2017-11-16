@@ -48,7 +48,7 @@ $GLOBALS['TCA']['pages']['columns']['pid']['external']['product_pages'] = [
                 10 => [
                         'mapping' => [
                                 'table' => 'pages',
-                                'reference_field' => 'product_sku'
+                                'referenceField' => 'product_sku'
                         ]
                 ]
         ]

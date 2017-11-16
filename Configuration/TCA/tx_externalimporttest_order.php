@@ -42,7 +42,7 @@ return [
                         'label' => 'Order ID',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '20',
+                                'size' => 20,
                                 'eval' => 'required,trim',
                         ],
                         'external' => [
@@ -61,7 +61,7 @@ return [
                         'label' => 'Order date',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '20',
+                                'size' => 20,
                                 'eval' => 'required,datetime',
                         ],
                         'external' => [
@@ -86,7 +86,7 @@ return [
                         'label' => 'Client',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '30',
+                                'size' => 30,
                                 'eval' => 'required,trim',
                         ],
                         'external' => [
@@ -133,7 +133,7 @@ return [
                                         'MM' => [
                                                 'mapping' => [
                                                         'table' => 'tx_externalimporttest_product',
-                                                        'reference_field' => 'sku'
+                                                        'referenceField' => 'sku'
                                                 ],
                                                 'additionalFields' => [
                                                         'quantity' => 'qty'

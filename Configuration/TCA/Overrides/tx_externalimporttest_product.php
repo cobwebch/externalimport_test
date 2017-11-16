@@ -14,7 +14,8 @@ $GLOBALS['TCA']['tx_externalimporttest_product']['columns']['categories']['exter
                 10 => [
                         'mapping' => [
                                 'table' => 'sys_category',
-                                'reference_field' => 'external_key'
+                                'referenceField' => 'external_key',
+                                'default' => ''
                         ]
                 ]
         ]

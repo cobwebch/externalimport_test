@@ -43,7 +43,7 @@ return [
                         'label' => 'Code',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '10'
+                                'size' => 10
                         ],
                         'external' => [
                                 0 => [
@@ -59,7 +59,7 @@ return [
                         'label' => 'Name',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '30',
+                                'size' => 30,
                                 'eval' => 'required,trim',
                         ],
                         'external' => [

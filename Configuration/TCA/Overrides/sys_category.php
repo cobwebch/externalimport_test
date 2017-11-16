@@ -44,7 +44,7 @@ $GLOBALS['TCA']['sys_category']['columns']['parent']['external']['product_catego
                 10 => [
                         'mapping' => [
                                 'table' => 'sys_category',
-                                'reference_field' => 'external_key'
+                                'referenceField' => 'external_key'
                         ]
                 ]
         ]

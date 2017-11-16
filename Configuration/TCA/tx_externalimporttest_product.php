@@ -113,7 +113,7 @@ return [
                         'label' => 'SKU',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '10'
+                                'size' => 10
                         ],
                         'external' => [
                                 'base' => [
@@ -131,7 +131,7 @@ return [
                         'label' => 'Name',
                         'config' => [
                                 'type' => 'input',
-                                'size' => '30',
+                                'size' => 30,
                                 'eval' => 'required,trim',
                         ],
                         'external' => [
@@ -153,7 +153,7 @@ return [
                         'label' => 'Tags',
                         'config' => [
                                 'type' => 'select',
-                                'size' => '5',
+                                'size' => 5,
                                 'foreign_table' => 'tx_externalimporttest_tag',
                                 'foreign_table_where' => 'ORDER BY name',
                                 'minitems' => 0,
@@ -166,7 +166,7 @@ return [
                                                 10 => [
                                                         'mapping' => [
                                                                 'table' => 'tx_externalimporttest_tag',
-                                                                'reference_field' => 'code',
+                                                                'referenceField' => 'code',
                                                                 'multipleValuesSeparator' => ','
                                                         ]
                                                 ]
