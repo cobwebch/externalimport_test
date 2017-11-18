@@ -214,13 +214,9 @@ return [
                                 'products_for_stores' => [
                                         'field' => 'store',
                                         'MM' => [
-                                                'transformations' => [
-                                                        10 => [
-                                                                'mapping' => [
-                                                                        'table' => 'tx_externalimporttest_store',
-                                                                        'reference_field' => 'store_code'
-                                                                ],
-                                                        ]
+                                                'mapping' => [
+                                                        'table' => 'tx_externalimporttest_store',
+                                                        'referenceField' => 'store_code'
                                                 ],
                                                 'additionalFields' => [
                                                         'stock' => 'qty'
