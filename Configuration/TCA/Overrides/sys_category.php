@@ -22,6 +22,7 @@ $newColumn = [
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_category', $newColumn);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('sys_category', 'external_key');
 
+// Import of categories
 $GLOBALS['TCA']['sys_category']['ctrl']['external']['product_categories'] = [
         'connector' => 'csv',
         'parameters' => [
@@ -46,6 +47,19 @@ $GLOBALS['TCA']['sys_category']['columns']['parent']['external']['product_catego
                                 'table' => 'sys_category',
                                 'referenceField' => 'external_key'
                         ]
+                ]
+        ]
+];
+
+// Erroneous configuration for testing column configuration validator
+$GLOBALS['TCA']['sys_category']['ctrl']['external']['column_configuration_errors'] = $GLOBALS['TCA']['sys_category']['ctrl']['external']['product_categories'];
+$GLOBALS['TCA']['sys_category']['ctrl']['external']['column_configuration_errors']['description'] = 'Configuration with errors for testing the column configuration validator';
+$GLOBALS['TCA']['sys_category']['columns']['title']['external']['column_configuration_errors'] = [];
+$GLOBALS['TCA']['sys_category']['columns']['parent']['external']['column_configuration_errors'] = [
+        'field' => 2,
+        'transformations' => [
+                10 => [
+                        'value' => 42
                 ]
         ]
 ];

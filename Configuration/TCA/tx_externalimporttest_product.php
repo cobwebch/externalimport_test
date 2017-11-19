@@ -89,19 +89,6 @@ return [
                                 'useColumnIndex' => 'baz',
                                 'description' => 'Configuration with errors for testing the control configuration validator'
                         ],
-                        // Configuration with errors, for testing the columns configuration validator
-                        'column_configuration_errors' => [
-                                'connector' => 'feed',
-                                'parameters' => [
-                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
-                                        'encoding' => 'utf8'
-                                ],
-                                'data' => 'xml',
-                                'nodetype' => 'products',
-                                'referenceUid' => 'sku',
-                                'priority' => 5100,
-                                'description' => 'Configuration with errors for testing the columns configuration validator'
-                        ]
                 ]
         ],
         'interface' => [
@@ -123,7 +110,6 @@ return [
                                 'products_for_stores' => [
                                         'field' => 'product'
                                 ],
-                                'column_configuration_errors' => []
                         ]
                 ],
                 'name' => [
@@ -138,14 +124,6 @@ return [
                                 'base' => [
                                         'xpath' => './self::*[@type="current"]/item',
                                 ],
-                                'column_configuration_errors' => [
-                                        'field' => 'foo',
-                                        'transformations' => [
-                                                10 => [
-                                                        'value' => 42
-                                                ]
-                                        ]
-                                ]
                         ]
                 ],
                 'tags' => [
