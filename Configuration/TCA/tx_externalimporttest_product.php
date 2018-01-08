@@ -89,6 +89,21 @@ return [
                                 'useColumnIndex' => 'baz',
                                 'description' => 'Configuration with errors for testing the control configuration validator'
                         ],
+                        'updated_products' => [
+                                'connector' => 'csv',
+                                'parameters' => [
+                                        'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/UpdatedProducts.csv',
+                                        'delimiter' => ';',
+                                        'text_qualifier' => '',
+                                        'encoding' => 'utf8',
+                                        'skip_rows' => 1
+                                ],
+                                'data' => 'array',
+                                'referenceUid' => 'sku',
+                                'priority' => 5810,
+                                'disabledOperations' => 'insert,delete',
+                                'description' => 'Update of products (moving to pages)'
+                        ]
                 ]
         ],
         'interface' => [
@@ -110,6 +125,9 @@ return [
                                 'products_for_stores' => [
                                         'field' => 'product'
                                 ],
+                                'updated_products' => [
+                                        'field' => 'product_sku'
+                                ]
                         ]
                 ],
                 'name' => [
@@ -198,6 +216,24 @@ return [
                                                 ],
                                                 'additionalFields' => [
                                                         'stock' => 'qty'
+                                                ]
+                                        ]
+                                ]
+                        ]
+                ],
+                'pid' => [
+                        'config' => [
+                                'type' => 'passthrough'
+                        ],
+                        'external' => [
+                                'updated_products' => [
+                                        'field' => 'page_sku',
+                                        'transformations' => [
+                                                10 => [
+                                                        'mapping' => [
+                                                                'table' => 'pages',
+                                                                'referenceField' => 'product_sku'
+                                                        ]
                                                 ]
                                         ]
                                 ]
