@@ -19,6 +19,7 @@ return [
                                         'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
                                         'encoding' => 'utf8'
                                 ],
+                                'group' => 'Products',
                                 'data' => 'xml',
                                 'nodetype' => 'products',
                                 'referenceUid' => 'sku',
@@ -39,6 +40,7 @@ return [
                                         'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/MoreProducts.xml',
                                         'encoding' => 'utf8'
                                 ],
+                                'group' => 'Products',
                                 'data' => 'xml',
                                 'nodetype' => 'products',
                                 'referenceUid' => 'sku',
@@ -54,6 +56,7 @@ return [
                                         'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/StableProducts.xml',
                                         'encoding' => 'utf8'
                                 ],
+                                'group' => 'Products',
                                 'data' => 'xml',
                                 'nodetype' => 'products',
                                 'referenceUid' => 'sku',

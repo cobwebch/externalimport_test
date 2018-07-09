@@ -18,13 +18,9 @@ return [
                 'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_bundle.png',
                 'external' => [
                         0 => [
-                                'connector' => 'csv',
+                                'connector' => 'json',
                                 'parameters' => [
-                                        'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Bundles.csv',
-                                        'delimiter' => ';',
-                                        'text_qualifier' => '',
-                                        'encoding' => 'utf8',
-                                        'skip_rows' => 1
+                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Bundles.json'
                                 ],
                                 'data' => 'array',
                                 'referenceUid' => 'bundle_code',
@@ -67,6 +63,25 @@ return [
                         'external' => [
                                 0 => [
                                         'field' => 'name',
+                                        'transformations' => [
+                                                10 => [
+                                                        'trim' => true
+                                                ]
+                                        ]
+                                ]
+                        ]
+                ],
+                'maker' => [
+                        'exclude' => 0,
+                        'label' => 'Maker',
+                        'config' => [
+                                'type' => 'input',
+                                'size' => 30,
+                                'eval' => 'required,trim',
+                        ],
+                        'external' => [
+                                0 => [
+                                        'arrayPath' => 'maker/name',
                                         'transformations' => [
                                                 10 => [
                                                         'trim' => true
