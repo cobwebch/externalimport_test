@@ -37,7 +37,8 @@ $GLOBALS['TCA']['pages']['ctrl']['external']['product_pages'] = [
         'data' => 'array',
         'referenceUid' => 'product_sku',
         'priority' => 5800,
-        'description' => 'Product pages'
+        'description' => 'Product pages',
+        'clearCache' => 'pages'
 ];
 $GLOBALS['TCA']['pages']['columns']['title']['external']['product_pages'] = [
         'field' => 'name'
