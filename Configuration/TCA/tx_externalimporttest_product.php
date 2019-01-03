@@ -3,6 +3,7 @@ if (!defined('TYPO3_MODE')) {
     die ('Access denied.');
 }
 
+$extensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test');
 return [
         'ctrl' => [
                 'title' => 'Products',
@@ -11,12 +12,14 @@ return [
                 'crdate' => 'crdate',
                 'cruser_id' => 'cruser_id',
                 'default_sortby' => 'ORDER BY name',
-                'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_product.png',
+                'typeicon_classes' => [
+                        'default' => 'tx_externalimporttest-product'
+                ],
                 'external' => [
                         'base' => [
                                 'connector' => 'feed',
                                 'parameters' => [
-                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
+                                        'uri' => $extensionPath . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
                                         'encoding' => 'utf8'
                                 ],
                                 'group' => 'Products',
@@ -37,7 +40,7 @@ return [
                         'more' => [
                                 'connector' => 'feed',
                                 'parameters' => [
-                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/MoreProducts.xml',
+                                        'uri' => $extensionPath . 'Resources/Private/ImportData/Test/MoreProducts.xml',
                                         'encoding' => 'utf8'
                                 ],
                                 'group' => 'Products',
@@ -53,7 +56,7 @@ return [
                         'stable' => [
                                 'connector' => 'feed',
                                 'parameters' => [
-                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/StableProducts.xml',
+                                        'uri' => $extensionPath . 'Resources/Private/ImportData/Test/StableProducts.xml',
                                         'encoding' => 'utf8'
                                 ],
                                 'group' => 'Products',
@@ -70,7 +73,7 @@ return [
                         'products_for_stores' => [
                                 'connector' => 'csv',
                                 'parameters' => [
-                                        'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductsForStores.csv',
+                                        'filename' => $extensionPath . 'Resources/Private/ImportData/Test/ProductsForStores.csv',
                                         'delimiter' => "\t",
                                         'text_qualifier' => '',
                                         'encoding' => 'utf8',
@@ -95,7 +98,7 @@ return [
                         'updated_products' => [
                                 'connector' => 'csv',
                                 'parameters' => [
-                                        'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/UpdatedProducts.csv',
+                                        'filename' => $extensionPath . 'Resources/Private/ImportData/Test/UpdatedProducts.csv',
                                         'delimiter' => ';',
                                         'text_qualifier' => '',
                                         'encoding' => 'utf8',

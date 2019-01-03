@@ -15,7 +15,9 @@ return [
                 'crdate' => 'crdate',
                 'cruser_id' => 'cruser_id',
                 'default_sortby' => 'ORDER BY name',
-                'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_bundle.png',
+                'typeicon_classes' => [
+                        'default' => 'tx_externalimporttest-bundle'
+                ],
                 'external' => [
                         0 => [
                                 'connector' => 'json',

@@ -14,7 +14,9 @@ return [
                 'crdate' => 'crdate',
                 'cruser_id' => 'cruser_id',
                 'default_sortby' => 'ORDER BY invoice_id',
-                'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('externalimport_test') . 'Resources/Public/Images/tx_externalimporttest_invoice.png',
+                'typeicon_classes' => [
+                        'default' => 'tx_externalimporttest-invoice'
+                ],
                 'external' => [
                         0 => [
                                 'connector' => 'feed',
