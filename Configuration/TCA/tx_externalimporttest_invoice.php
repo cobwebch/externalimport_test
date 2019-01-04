@@ -21,7 +21,7 @@ return [
                         0 => [
                                 'connector' => 'feed',
                                 'parameters' => [
-                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Invoices.xml',
+                                        'uri' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Invoices.xml',
                                         'encoding' => 'utf8'
                                 ],
                                 'data' => 'xml',

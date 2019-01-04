@@ -21,7 +21,7 @@ return [
                         0 => [
                                 'connector' => 'csv',
                                 'parameters' => [
-                                        'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Orders.csv',
+                                        'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Orders.csv',
                                         'delimiter' => "\t",
                                         'text_qualifier' => '',
                                         'encoding' => 'utf8',

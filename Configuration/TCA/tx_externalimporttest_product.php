@@ -3,7 +3,6 @@ if (!defined('TYPO3_MODE')) {
     die ('Access denied.');
 }
 
-$extensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test');
 return [
         'ctrl' => [
                 'title' => 'Products',
@@ -19,7 +18,7 @@ return [
                         'base' => [
                                 'connector' => 'feed',
                                 'parameters' => [
-                                        'uri' => $extensionPath . 'Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
+                                        'uri' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
                                         'encoding' => 'utf8'
                                 ],
                                 'group' => 'Products',
@@ -40,7 +39,7 @@ return [
                         'more' => [
                                 'connector' => 'feed',
                                 'parameters' => [
-                                        'uri' => $extensionPath . 'Resources/Private/ImportData/Test/MoreProducts.xml',
+                                        'uri' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/MoreProducts.xml',
                                         'encoding' => 'utf8'
                                 ],
                                 'group' => 'Products',
@@ -56,7 +55,7 @@ return [
                         'stable' => [
                                 'connector' => 'feed',
                                 'parameters' => [
-                                        'uri' => $extensionPath . 'Resources/Private/ImportData/Test/StableProducts.xml',
+                                        'uri' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/StableProducts.xml',
                                         'encoding' => 'utf8'
                                 ],
                                 'group' => 'Products',
@@ -73,7 +72,7 @@ return [
                         'products_for_stores' => [
                                 'connector' => 'csv',
                                 'parameters' => [
-                                        'filename' => $extensionPath . 'Resources/Private/ImportData/Test/ProductsForStores.csv',
+                                        'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/ProductsForStores.csv',
                                         'delimiter' => "\t",
                                         'text_qualifier' => '',
                                         'encoding' => 'utf8',
@@ -98,7 +97,7 @@ return [
                         'updated_products' => [
                                 'connector' => 'csv',
                                 'parameters' => [
-                                        'filename' => $extensionPath . 'Resources/Private/ImportData/Test/UpdatedProducts.csv',
+                                        'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/UpdatedProducts.csv',
                                         'delimiter' => ';',
                                         'text_qualifier' => '',
                                         'encoding' => 'utf8',

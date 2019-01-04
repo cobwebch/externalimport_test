@@ -22,7 +22,7 @@ return [
                         0 => [
                                 'connector' => 'json',
                                 'parameters' => [
-                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Bundles.json'
+                                        'uri' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Bundles.json'
                                 ],
                                 'data' => 'array',
                                 'referenceUid' => 'bundle_code',

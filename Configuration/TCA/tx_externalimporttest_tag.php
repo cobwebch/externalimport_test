@@ -18,7 +18,7 @@ return [
                         0 => [
                                 'connector' => 'csv',
                                 'parameters' => [
-                                        'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Tags.txt',
+                                        'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Tags.txt',
                                         'delimiter' => ';',
                                         'text_qualifier' => '"',
                                         'encoding' => 'utf8',
