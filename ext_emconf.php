@@ -25,12 +25,12 @@ $EM_CONF[$_EXTKEY] = [
         'clearCacheOnLoad' => 1,
         'lockType' => '',
         'author_company' => '',
-        'version' => '0.5.0',
+        'version' => '0.6.0',
         'constraints' =>
                 [
                         'depends' =>
                                 [
-                                        'external_import' => '4.0.0-0.0.0',
+                                        'external_import' => '4.1.0-0.0.0',
                                         'svconnector_feed' => '2.2.0-0.0.0',
                                         'svconnector_csv' => '2.2.0-0.0.0',
                                         'svconnector_json' => '2.2.0-0.0.0',
@@ -45,5 +45,3 @@ $EM_CONF[$_EXTKEY] = [
                                 ],
                 ],
 ];
-
-?>
