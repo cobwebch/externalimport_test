@@ -12,7 +12,7 @@ $EM_CONF[$_EXTKEY] = [
         'title' => 'External Import Test Data',
         'description' => 'Test data and scenarios for the External Import extension.',
         'category' => 'example',
-        'author' => 'Francois Suter (Cobweb)',
+        'author' => 'Francois Suter (Idéative)',
         'author_email' => 'typo3@cobweb.ch',
         'shy' => '',
         'priority' => '',
@@ -25,7 +25,7 @@ $EM_CONF[$_EXTKEY] = [
         'clearCacheOnLoad' => 1,
         'lockType' => '',
         'author_company' => '',
-        'version' => '0.6.0',
+        'version' => '0.7.0',
         'constraints' =>
                 [
                         'depends' =>
@@ -34,14 +34,13 @@ $EM_CONF[$_EXTKEY] = [
                                         'svconnector_feed' => '2.2.0-0.0.0',
                                         'svconnector_csv' => '2.2.0-0.0.0',
                                         'svconnector_json' => '2.2.0-0.0.0',
-                                        'typo3' => '8.7.0-9.99.99',
+                                        'typo3' => '9.5.0-9.99.99',
                                 ],
                         'conflicts' =>
                                 [
                                 ],
                         'suggests' =>
                                 [
-                                        'devlog' => '',
                                 ],
                 ],
 ];
