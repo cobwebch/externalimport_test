@@ -1,4 +1,4 @@
-h1. External Import Test Data
+# External Import Test Data
 
 This TYPO3 CMS extension provides test data for extension "external_import".
 These import scenarios are not documented, but can also be used as examples
@@ -10,7 +10,7 @@ should provide the basis for running unit tests of "external_import".
 If this does not make any sense, start by looking at
 http://typo3.org/extensions/repository/view/external_import.
 
-h2. Credits
+## Credits
 
 The icons for the various tables come from the Noun Project:
 
