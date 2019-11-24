@@ -107,6 +107,7 @@ return [
                                 'referenceUid' => 'sku',
                                 'priority' => 5810,
                                 'disabledOperations' => 'insert,delete',
+                                'updateSlugs' => true,
                                 'description' => 'Update of products (moving to pages, update slug)'
                         ]
                 ]
