@@ -107,7 +107,7 @@ return [
                                 'referenceUid' => 'sku',
                                 'priority' => 5810,
                                 'disabledOperations' => 'insert,delete',
-                                'description' => 'Update of products (moving to pages)'
+                                'description' => 'Update of products (moving to pages, update slug)'
                         ]
                 ]
         ],
@@ -116,7 +116,7 @@ return [
         ],
         'columns' => [
                 'sku' => [
-                        'exclude' => 0,
+                        'exclude' => false,
                         'label' => 'SKU',
                         'config' => [
                                 'type' => 'input',
@@ -136,7 +136,7 @@ return [
                         ]
                 ],
                 'name' => [
-                        'exclude' => 0,
+                        'exclude' => false,
                         'label' => 'Name',
                         'config' => [
                                 'type' => 'input',
@@ -147,10 +147,27 @@ return [
                                 'base' => [
                                         'xpath' => './self::*[@type="current"]/item',
                                 ],
+                                'updated_products' => [
+                                        'field' => 'name'
+                                ]
+                        ]
+                ],
+                'path_segment' => [
+                        'exclude' => false,
+                        'label' => 'Speaking URL',
+                        'config' => [
+                                'type' => 'slug',
+                                'eval' => 'uniqueInSite',
+                                'fallbackCharacter' => '-',
+                                'generatorOptions' => [
+                                        'fields' => [
+                                                'name'
+                                        ]
+                                ]
                         ]
                 ],
                 'tags' => [
-                        'exclude' => 0,
+                        'exclude' => false,
                         'label' => 'Tags',
                         'config' => [
                                 'type' => 'select',
@@ -176,7 +193,7 @@ return [
                         ]
                 ],
                 'attributes' => [
-                        'exclude' => 0,
+                        'exclude' => false,
                         'label' => 'Attributes',
                         'config' => [
                                 'type' => 'text',
@@ -199,7 +216,7 @@ return [
                         ]
                 ],
                 'stores' => [
-                        'exclude' => 0,
+                        'exclude' => false,
                         'label' => 'Stores',
                         'config' => [
                                 'type' => 'select',
@@ -246,6 +263,6 @@ return [
                 ]
         ],
         'types' => [
-                '0' => ['showitem' => 'name,sku,tags,attributes,stores']
+                '0' => ['showitem' => 'name, path_segment, sku, tags, attributes, stores']
         ],
 ];
