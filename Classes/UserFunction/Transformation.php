@@ -30,14 +30,13 @@ class Transformation
      * @param array $params Additional parameters from the TCA
      * @return string HTML structure
      */
-    public function processAttributes($record, $index, $params)
+    public function processAttributes($record, $index, $params): string
     {
         $html = $record[$index];
         if (empty($html)) {
             return '';
-        } else {
-            $html = str_replace('quality', 'li', $html);
-            return '<ul>' . $html . '</ul>';
         }
+        $html = str_replace('quality', 'li', $html);
+        return '<ul>' . $html . '</ul>';
     }
 }

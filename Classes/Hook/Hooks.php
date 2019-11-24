@@ -31,7 +31,7 @@ class Hooks
      * @param Configuration $configuration Reference to the current Configuration object
      * @return array Modified parameters
      */
-    public function processParameters($parameters, $configuration)
+    public function processParameters($parameters, $configuration): array
     {
         foreach ($parameters as $key => $value) {
             // Remove the "SILLYMARKER" string from the "uri" parameter, if it exists

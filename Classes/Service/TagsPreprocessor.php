@@ -38,7 +38,7 @@ class TagsPreprocessor
      * @param Importer $importer Back-reference to the calling object
      * @return array The filtered record set
      */
-    public function preprocessRawRecordset($records, $importer)
+    public function preprocessRawRecordset($records, $importer): array
     {
         if ($importer->getExternalConfiguration()->getTable() === 'tx_externalimporttest_tag') {
             $numRecords = count($records);

@@ -28,7 +28,7 @@ class EnhanceDataStep extends AbstractStep
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $records = $this->getData()->getRecords();
         foreach ($records as $index => $record) {
