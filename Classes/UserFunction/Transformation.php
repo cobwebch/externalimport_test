@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Cobweb\ExternalimportTest\UserFunction;
 
 /*
@@ -14,14 +15,19 @@ namespace Cobweb\ExternalimportTest\UserFunction;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Cobweb\ExternalImport\ImporterAwareInterface;
+use Cobweb\ExternalImport\ImporterAwareTrait;
+
 /**
  * Example user functions for the 'externalimport_test' extension
  *
  * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
  * @package TYPO3
  */
-class Transformation
+class Transformation implements ImporterAwareInterface
 {
+    use ImporterAwareTrait;
+
     /**
      * Takes a XML structure of <quality> tags and transforms it into a <ul><li>...</li></ul> structure.
      *
@@ -30,14 +36,19 @@ class Transformation
      * @param array $params Additional parameters from the TCA
      * @return string HTML structure
      */
-    public function processAttributes($record, $index, $params)
+    public function processAttributes(array $record, string $index, array $params): string
     {
         $html = $record[$index];
         if (empty($html)) {
             return '';
-        } else {
-            $html = str_replace('quality', 'li', $html);
-            return '<ul>' . $html . '</ul>';
         }
+
+        $html = str_replace('quality', 'li', $html);
+        $html = '<ul>' . $html . '</ul>';
+        // Rather silly, but demonstrates checking the preview mode thanks to the reference to the Importer class
+        if ($this->importer->isPreview()) {
+            $html = 'PREVIEW: ' . $html;
+        }
+        return $html;
     }
 }
