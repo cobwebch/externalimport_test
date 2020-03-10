@@ -50,3 +50,10 @@ $iconRegistry->registerIcon(
                 'source' => 'EXT:externalimport_test/Resources/Public/Icons/Tag.svg'
         ]
 );
+$iconRegistry->registerIcon(
+        'tx_externalimporttest-designer',
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        [
+                'source' => 'EXT:externalimport_test/Resources/Public/Icons/Designer.svg'
+        ]
+);

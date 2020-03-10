@@ -3,8 +3,11 @@
 	This data set is designed for testing the followign features:
 
 	1) Usage of XPath
-	   The "item" nodes should be imported, but only those found within
-	   a "products" node with attribute "type" equals to "current".
+	   a. The "item" nodes should be imported, but only those found within
+	      a "products" node with attribute "type" equals to "current".
+	   b. The "designer" nodes are imported as one type of record even though
+	      they are distributed inside several "products" structures. And the node
+	      outside the structure is not imported.
 
 	2) Comma-separated multiple values
 	   Each tag should correspond to an entry in a separate DB table.
@@ -20,6 +23,16 @@
 			<quality>Stylish</quality>
 			<quality>Reliable</quality>
 		</attributes>
+		<designers>
+			<designer>
+				<name>Alexander the Great</name>
+				<code>ALEX</code>
+			</designer>
+			<designer>
+				<name>Napoleon the Small</name>
+				<code>NAPI</code>
+			</designer>
+		</designers>
 	</products>
 	<products type="obsolete">
 		<item index="000002">Solar cream</item>
@@ -32,6 +45,16 @@
 			<quality>Not too cumbersome</quality>
 			<quality>Lets the air flow</quality>
 		</attributes>
+		<designers>
+			<designer>
+				<name>Gimli the Dwarf</name>
+				<code>GIMLI</code>
+			</designer>
+		</designers>
 	</products>
 	<item sku="000014" type="current">Out of structure</item>
+	<designer>
+		<name>I'm a rebel</name>
+		<code>NO_IMPORT</code>
+	</designer>
 </catalogue>
