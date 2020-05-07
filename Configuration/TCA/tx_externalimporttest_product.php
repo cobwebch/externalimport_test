@@ -92,6 +92,12 @@ return [
                                 'dataHandler' => \Cobweb\ExternalImport\Importer::class,
                                 'pid' => 0,
                                 'useColumnIndex' => 'baz',
+                                'customSteps' => [
+                                        [
+                                                'class' => \Cobweb\ExternalImport\Step\HandleDataStep::class,
+                                                'position' => 'next:' . \Cobweb\ExternalImport\Step\TransformDataStep::class
+                                        ]
+                                ],
                                 'description' => 'Configuration with errors for testing the control configuration validator'
                         ],
                         'updated_products' => [
