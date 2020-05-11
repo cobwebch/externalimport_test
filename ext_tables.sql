@@ -9,6 +9,7 @@ CREATE TABLE tx_externalimporttest_product (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	sku varchar(255) DEFAULT '' NOT NULL,
 	name varchar(255) DEFAULT '' NOT NULL,
+	path_segment varchar(2048) DEFAULT '' NOT NULL,
 	tags varchar(255) DEFAULT '' NOT NULL,
 	attributes text,
 	stores int(11) DEFAULT '0' NOT NULL,

@@ -36,7 +36,7 @@ class ImportCommand extends Command
      *
      * @return void
      */
-    public function configure()
+    public function configure(): void
     {
         $this->setDescription('Runs External Import using its import API for testing purposes.')
                 ->setHelp('Just run the command and check in the backend or in the DB if the expected records are there.');
@@ -50,7 +50,7 @@ class ImportCommand extends Command
      *
      * @return void
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         // Make sure the _cli_ user is loaded
         Bootstrap::getInstance()->initializeBackendAuthentication();
