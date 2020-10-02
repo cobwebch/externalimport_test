@@ -13,8 +13,10 @@ return [
                 'default_sortby' => 'ORDER BY name',
                 'typeicon_classes' => [
                         'default' => 'tx_externalimporttest-product'
-                ],
-                'external' => [
+                ]
+        ],
+        'external' => [
+                'general' => [
                         'base' => [
                                 'connector' => 'feed',
                                 'parameters' => [
@@ -80,7 +82,6 @@ return [
                                 ],
                                 'data' => 'array',
                                 'referenceUid' => 'sku',
-                                'additionalFields' => 'qty',
                                 'priority' => 5410,
                                 'disabledOperations' => 'insert,delete',
                                 'description' => 'List of products for stores'
@@ -115,6 +116,13 @@ return [
                                 'disabledOperations' => 'insert,delete',
                                 'updateSlugs' => true,
                                 'description' => 'Update of products (moving to pages, update slug)'
+                        ]
+                ],
+                'additionalFields' => [
+                        'products_for_stores' => [
+                                'qty' => [
+                                        'field' => 'qty'
+                                ]
                         ]
                 ]
         ],

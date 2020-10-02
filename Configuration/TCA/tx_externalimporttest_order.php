@@ -17,7 +17,9 @@ return [
                 'typeicon_classes' => [
                         'default' => 'tx_externalimporttest-order'
                 ],
-                'external' => [
+        ],
+        'external' => [
+                'general' => [
                         0 => [
                                 'connector' => 'csv',
                                 'parameters' => [
@@ -29,9 +31,15 @@ return [
                                 ],
                                 'data' => 'array',
                                 'referenceUid' => 'order_id',
-                                'additionalFields' => 'qty',
                                 'priority' => 5300,
                                 'description' => 'List of orders'
+                        ]
+                ],
+                'additionalFields' => [
+                        0 => [
+                                'quantity' => [
+                                        'field' => 'qty'
+                                ]
                         ]
                 ]
         ],
@@ -138,7 +146,7 @@ return [
                                                         'referenceField' => 'sku'
                                                 ],
                                                 'additionalFields' => [
-                                                        'quantity' => 'qty'
+                                                        'quantity' => 'quantity'
                                                 ]
                                         ]
                                 ]

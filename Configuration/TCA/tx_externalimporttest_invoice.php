@@ -17,7 +17,9 @@ return [
                 'typeicon_classes' => [
                         'default' => 'tx_externalimporttest-invoice'
                 ],
-                'external' => [
+        ],
+        'external' => [
+                'general' => [
                         0 => [
                                 'connector' => 'feed',
                                 'parameters' => [

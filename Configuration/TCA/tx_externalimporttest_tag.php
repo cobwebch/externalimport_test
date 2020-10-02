@@ -13,8 +13,10 @@ return [
                 'default_sortby' => 'ORDER BY name',
                 'typeicon_classes' => [
                         'default' => 'tx_externalimporttest-tag'
-                ],
-                'external' => [
+                ]
+        ],
+        'external' => [
+                'general' => [
                         0 => [
                                 'connector' => 'csv',
                                 'parameters' => [

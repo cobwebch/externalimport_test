@@ -17,8 +17,10 @@ return [
                 'default_sortby' => 'ORDER BY name',
                 'typeicon_classes' => [
                         'default' => 'tx_externalimporttest-bundle'
-                ],
-                'external' => [
+                ]
+        ],
+        'external' => [
+                'general' => [
                         0 => [
                                 'connector' => 'json',
                                 'parameters' => [
@@ -26,9 +28,15 @@ return [
                                 ],
                                 'data' => 'array',
                                 'referenceUid' => 'bundle_code',
-                                'additionalFields' => 'position',
                                 'priority' => 5200,
                                 'description' => 'List of bundles'
+                        ]
+                ],
+                'additionalFields' => [
+                        0 => [
+                                'position' => [
+                                        'field' => 'position'
+                                ]
                         ]
                 ]
         ],

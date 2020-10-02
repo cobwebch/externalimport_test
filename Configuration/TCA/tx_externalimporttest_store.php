@@ -16,8 +16,10 @@ return [
                 'default_sortby' => 'ORDER BY name',
                 'typeicon_classes' => [
                         'default' => 'tx_externalimporttest-store'
-                ],
-                'external' => [
+                ]
+        ],
+        'external' => [
+                'general' => [
                         0 => [
                                 'connector' => 'csv',
                                 'parameters' => [
@@ -29,9 +31,15 @@ return [
                                 ],
                                 'data' => 'array',
                                 'referenceUid' => 'store_code',
-                                'additionalFields' => 'qty',
                                 'priority' => 5400,
                                 'description' => 'List of stores'
+                        ]
+                ],
+                'additionalFields' => [
+                        0 => [
+                                'quantity' => [
+                                        'field' => 'qty'
+                                ]
                         ]
                 ]
         ],
@@ -97,7 +105,7 @@ return [
                                                         'referenceField' => 'sku'
                                                 ],
                                                 'additionalFields' => [
-                                                        'stock' => 'qty'
+                                                        'stock' => 'quantity'
                                                 ]
                                         ]
                                 ]
@@ -105,6 +113,6 @@ return [
                 ]
         ],
         'types' => [
-                '0' => ['showitem' => 'name,code,products']
+                '0' => ['showitem' => 'name, code, products']
         ],
 ];

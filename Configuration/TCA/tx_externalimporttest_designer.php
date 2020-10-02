@@ -13,8 +13,10 @@ return [
                 'default_sortby' => 'ORDER BY name',
                 'typeicon_classes' => [
                         'default' => 'tx_externalimporttest-designer'
-                ],
-                'external' => [
+                ]
+        ],
+        'external' => [
+                'general' => [
                         0 => [
                                 'connector' => 'feed',
                                 'parameters' => [

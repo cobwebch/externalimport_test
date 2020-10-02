@@ -25,7 +25,7 @@ $newColumn = [
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $newColumn);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 'product_sku');
 
-$GLOBALS['TCA']['pages']['ctrl']['external']['product_pages'] = [
+$GLOBALS['TCA']['pages']['external']['general']['product_pages'] = [
         'connector' => 'csv',
         'parameters' => [
                 'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductPages.csv',
