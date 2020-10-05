@@ -51,4 +51,17 @@ class Transformation implements ImporterAwareInterface
         }
         return $html;
     }
+
+    /**
+     * Removes the opening # character (well, any # actually)
+     *
+     * @param array $record The full record that is being transformed
+     * @param string $index The index of the field to transform
+     * @param array $params Additional parameters from the TCA
+     * @return string
+     */
+    public function stripPositionMarker(array $record, string $index, array $params): string
+    {
+        return str_replace('#', '', $record[$index]);
+    }
 }

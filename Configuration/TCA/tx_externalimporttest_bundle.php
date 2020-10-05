@@ -35,7 +35,15 @@ return [
                 'additionalFields' => [
                         0 => [
                                 'position' => [
-                                        'field' => 'position'
+                                        'field' => 'position',
+                                        'transformations' => [
+                                                10 => [
+                                                        'userFunc' => [
+                                                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                                                'method' => 'stripPositionMarker'
+                                                        ]
+                                                ]
+                                        ]
                                 ]
                         ]
                 ]
