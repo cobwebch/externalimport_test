@@ -113,6 +113,7 @@ return [
                         'label' => 'Products',
                         'config' => [
                                 'type' => 'select',
+                                'renderType' => 'selectMultipleSideBySide',
                                 'foreign_table' => 'tx_externalimporttest_product',
                                 'foreign_table_where' => 'ORDER BY name',
                                 'MM' => 'tx_externalimporttest_bundle_product_mm',

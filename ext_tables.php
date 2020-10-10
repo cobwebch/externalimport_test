@@ -37,6 +37,13 @@ $iconRegistry->registerIcon(
         ]
 );
 $iconRegistry->registerIcon(
+        'tx_externalimporttest-orderitem',
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        [
+                'source' => 'EXT:externalimport_test/Resources/Public/Icons/OrderItem.svg'
+        ]
+);
+$iconRegistry->registerIcon(
         'tx_externalimporttest-store',
         \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         [

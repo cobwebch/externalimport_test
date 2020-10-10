@@ -89,6 +89,7 @@ return [
                         'label' => 'Products',
                         'config' => [
                                 'type' => 'select',
+                                'renderType' => 'selectMultipleSideBySide',
                                 'foreign_table' => 'tx_externalimporttest_product',
                                 'foreign_table_where' => 'ORDER BY name',
                                 'MM' => 'tx_externalimporttest_store_product_mm',

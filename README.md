@@ -16,6 +16,7 @@ The icons for the various tables come from the Noun Project:
 * "bundle" table: bundle by Lek Potharam
 * "invoice" table: invoice by Ilya Tsarenko
 * "order" table: Shopping Cart by lipi
+* "oder item" table: shopping by Alice Design
 * "product" table: product by Rafael Garcia Motta
 * "store" table: Store by AomAm
 * "tag" table: Tag by Prime Icons

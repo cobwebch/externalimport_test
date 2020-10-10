@@ -67,6 +67,7 @@ return [
                         'label' => 'Order ID',
                         'config' => [
                                 'type' => 'select',
+                                'renderType' => 'selectSingle',
                                 'foreign_table' => 'tx_externalimporttest_order',
                                 'size' => 1,
                                 'minitems' => 1,

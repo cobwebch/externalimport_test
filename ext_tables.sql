@@ -14,6 +14,7 @@ CREATE TABLE tx_externalimporttest_product (
 	attributes text,
 	stores int(11) DEFAULT '0' NOT NULL,
 	categories int(11) DEFAULT '0' NOT NULL,
+	pictures int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -72,14 +73,18 @@ CREATE TABLE tx_externalimporttest_order (
 #
 # Table structure for order details
 #
-CREATE TABLE tx_externalimporttest_order_items_mm (
+CREATE TABLE tx_externalimporttest_order_items (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
 	uid_local int(11) DEFAULT '0' NOT NULL,
 	uid_foreign int(11) DEFAULT '0' NOT NULL,
-	tablenames varchar(255) DEFAULT '' NOT NULL,
-	fieldname varchar(255) DEFAULT '' NOT NULL,
-	sorting int(11) DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) DEFAULT '0' NOT NULL,
 	quantity int(11) DEFAULT '0' NOT NULL,
 
+	PRIMARY KEY (uid),
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );

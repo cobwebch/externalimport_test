@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 /*
- * Orders are used to test MM relations with additional fields (quantity in this case)
+ * Orders are used to test IRRE relations
  */
 return [
         'ctrl' => [
@@ -21,25 +21,14 @@ return [
         'external' => [
                 'general' => [
                         0 => [
-                                'connector' => 'csv',
+                                'connector' => 'json',
                                 'parameters' => [
-                                        'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Orders.csv',
-                                        'delimiter' => "\t",
-                                        'text_qualifier' => '',
-                                        'encoding' => 'utf8',
-                                        'skip_rows' => 1
+                                        'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Orders.json'
                                 ],
                                 'data' => 'array',
                                 'referenceUid' => 'order_id',
                                 'priority' => 5300,
                                 'description' => 'List of orders'
-                        ]
-                ],
-                'additionalFields' => [
-                        0 => [
-                                'quantity' => [
-                                        'field' => 'qty'
-                                ]
                         ]
                 ]
         ],
@@ -110,50 +99,64 @@ return [
                                 ]
                         ]
                 ],
-                /*
-                 * Relations between orders and products are stored in a MM table.
-                 * During import the quantity is stored in an extra field of that table.
-                 * However this cannot be viewed in the TYPO3 BE.
-                 * The proper structure for TYPO3 would be to use an IRRE field for products
-                 * where the quantity could be entered in a normal field. However this
-                 * doesn't work with external_import in its current state, as it would
-                 * imply creating nested records during import (orders and order-product
-                 * relations). This is currently not possible.
-                 * Anyway, this structure is useful for testing a number of features related to MM tables.
-                 */
                 'products' => [
                         'exclude' => 0,
                         'label' => 'Products',
                         'config' => [
-                                'type' => 'select',
-                                'foreign_table' => 'tx_externalimporttest_product',
-                                'foreign_table_where' => 'ORDER BY name',
-                                'MM' => 'tx_externalimporttest_order_items_mm',
-                                'MM_match_fields' => [
-                                        'tablenames' => 'tx_externalimporttest_product',
-                                        'fieldname' => 'products'
-                                ],
-                                'size' => 10,
+                                'type' => 'inline',
+                                'foreign_table' => 'tx_externalimporttest_order_items',
+                                'foreign_selector' => 'uid_foreign',
+                                'foreign_label' => 'uid_foreign',
+                                'foreign_field' => 'uid_local',
+                                'foreign_sortby' => 'sorting_foreign',
                                 'minitems' => 1,
-                                'maxitems' => 9990
+                                'maxitems' => 9999,
+                                'appearance' => [
+                                        'useSortable' => true
+                                ]
                         ],
                         'external' => [
                                 0 => [
-                                        'field' => 'product',
-                                        'MM' => [
-                                                'mapping' => [
-                                                        'table' => 'tx_externalimporttest_product',
-                                                        'referenceField' => 'sku'
+                                        'field' => 'products',
+                                        'substructureFields' => [
+                                                'products' => [
+                                                        'field' => 'product'
                                                 ],
-                                                'additionalFields' => [
-                                                        'quantity' => 'quantity'
+                                                'quantity' => [
+                                                        'field' => 'qty'
                                                 ]
+                                        ],
+                                        'transformations' => [
+                                                10 => [
+                                                        'mapping' => [
+                                                                'table' => 'tx_externalimporttest_product',
+                                                                'referenceField' => 'sku'
+                                                        ],
+                                                ]
+                                        ],
+                                        'children' => [
+                                                'table' => 'tx_externalimporttest_order_items',
+                                                'columns' => [
+                                                        'uid_local' => [
+                                                                'field' => '__parent.id__'
+                                                        ],
+                                                        'uid_foreign' => [
+                                                                'field' => 'products'
+                                                        ],
+                                                        'quantity' => [
+                                                                'field' => 'quantity'
+                                                        ]
+                                                ],
+                                                'controlColumnsForUpdate' => 'uid_local, uid_foreign',
+                                                'controlColumnsForDelete' => 'uid_local'
                                         ]
                                 ]
                         ]
                 ]
         ],
         'types' => [
-                '0' => ['showitem' => 'order_id,client_id,order_date,products']
+                '0' => [
+                        'showitem' => 'order_id, client_id, order_date, products'
+                ]
         ],
 ];

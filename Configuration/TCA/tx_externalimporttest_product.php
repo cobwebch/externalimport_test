@@ -186,6 +186,7 @@ return [
                         'label' => 'Tags',
                         'config' => [
                                 'type' => 'select',
+                                'renderType' => 'selectMultipleSideBySide',
                                 'size' => 5,
                                 'foreign_table' => 'tx_externalimporttest_tag',
                                 'foreign_table_where' => 'ORDER BY name',
@@ -230,11 +231,72 @@ return [
                                 ]
                         ]
                 ],
+                'pictures' => [
+                        'exclude' => 0,
+                        'label' => 'Pictures',
+                        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                                'pictures',
+                                [],
+                                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+                        ),
+                        'external' => [
+                                'base' => [
+                                        'xpath' => 'pictures/picture',
+                                        'substructureFields' => [
+                                                'pictures' => [
+                                                        'field' => 'file'
+                                                ],
+                                                'picture_title' => [
+                                                        'field' => 'title'
+                                                ]
+                                        ],
+                                        'transformations' => [
+                                                10 => [
+                                                        'userFunc' => [
+                                                                'class' => \Cobweb\ExternalImport\Transformation\ImageTransformation::class,
+                                                                'method' => 'saveImageFromUri',
+                                                                'params' => [
+                                                                        'storage' => '1:imported_images',
+                                                                        'nameField' => 'picture_title',
+                                                                        'defaultExtension' => 'jpg'
+                                                                ]
+                                                        ]
+                                                ]
+                                        ],
+                                        'children' => [
+                                                'table' => 'sys_file_reference',
+                                                'columns' => [
+                                                        'uid_local' => [
+                                                                'field' => 'pictures'
+                                                        ],
+                                                        'uid_foreign' => [
+                                                                'field' => '__parent.id__'
+                                                        ],
+                                                        'title' => [
+                                                                'field' => 'picture_title'
+                                                        ],
+                                                        'tablenames' => [
+                                                                'value' => 'tx_externalimporttest_product'
+                                                        ],
+                                                        'fieldname' => [
+                                                                'value' => 'pictures'
+                                                        ],
+                                                        'table_local' => [
+                                                                'value' => 'sys_file'
+                                                        ]
+                                                ],
+                                                'controlColumnsForUpdate' => 'uid_local, uid_foreign, tablenames, fieldname, table_local',
+                                                'controlColumnsForDelete' => 'uid_foreign, tablenames, fieldname, table_local'
+                                        ]
+                                ]
+                        ]
+                ],
                 'stores' => [
                         'exclude' => false,
                         'label' => 'Stores',
                         'config' => [
                                 'type' => 'select',
+                                'renderType' => 'selectMultipleSideBySide',
                                 'foreign_table' => 'tx_externalimporttest_store',
                                 'foreign_table_where' => 'ORDER BY name',
                                 'MM' => 'tx_externalimporttest_store_product_mm',
@@ -278,6 +340,6 @@ return [
                 ]
         ],
         'types' => [
-                '0' => ['showitem' => 'name, path_segment, sku, tags, attributes, stores']
+                '0' => ['showitem' => 'name, path_segment, sku, tags, attributes, pictures, stores']
         ],
 ];

@@ -23,6 +23,16 @@
 			<quality>Stylish</quality>
 			<quality>Reliable</quality>
 		</attributes>
+		<pictures>
+			<picture>
+				<file>https://loremflickr.com/320/240/scotland</file>
+				<title>View from the left</title>
+			</picture>
+			<picture>
+				<file>https://loremflickr.com/320/240/volcano</file>
+				<title>View from above</title>
+			</picture>
+		</pictures>
 		<designers>
 			<designer>
 				<name>Alexander the Great</name>
