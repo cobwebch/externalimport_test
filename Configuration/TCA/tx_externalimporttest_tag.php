@@ -31,6 +31,22 @@ return [
                                 'priority' => 5000,
                                 'description' => 'List of tags'
                         ],
+                        'only-delete' => [
+                                'connector' => 'csv',
+                                'parameters' => [
+                                        'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Tags.txt',
+                                        'delimiter' => ';',
+                                        'text_qualifier' => '"',
+                                        'encoding' => 'utf8',
+                                        'skip_rows' => 1
+                                ],
+                                'data' => 'array',
+                                'referenceUid' => 'code',
+                                'useColumnIndex' => 0,
+                                'priority' => 5900,
+                                'disabledOperations' => 'insert,update',
+                                'description' => 'Delete existing tags outside of imported tags'
+                        ],
                         'api' => [
                                 'data' => 'array',
                                 'referenceUid' => 'code',
