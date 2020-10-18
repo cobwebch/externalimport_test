@@ -32,7 +32,7 @@ class EnhanceDataStep extends AbstractStep
     {
         $records = $this->getData()->getRecords();
         foreach ($records as $index => $record) {
-            $records[$index]['name'] = $record['name'] . ' (base)';
+            $records[$index]['name'] = $record['name'] . $this->parameters['tag'];
         }
         $this->getData()->setRecords($records);
     }

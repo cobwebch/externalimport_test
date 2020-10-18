@@ -31,7 +31,10 @@ return [
                                 'customSteps' => [
                                         [
                                                 'class' => \Cobweb\ExternalimportTest\Step\EnhanceDataStep::class,
-                                                'position' => 'after:' . \Cobweb\ExternalImport\Step\ValidateDataStep::class
+                                                'position' => 'after:' . \Cobweb\ExternalImport\Step\ValidateDataStep::class,
+                                                'parameters' => [
+                                                        'tag' => ' (base)'
+                                                ]
                                         ]
                                 ],
                                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
