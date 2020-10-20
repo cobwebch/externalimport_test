@@ -225,7 +225,7 @@ return [
                                         'xmlValue' => true,
                                         'transformations' => [
                                                 10 => [
-                                                        'userFunc' => [
+                                                        'userFunction' => [
                                                                 'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
                                                                 'method' => 'processAttributes'
                                                         ]
@@ -255,10 +255,10 @@ return [
                                         ],
                                         'transformations' => [
                                                 10 => [
-                                                        'userFunc' => [
+                                                        'userFunction' => [
                                                                 'class' => \Cobweb\ExternalImport\Transformation\ImageTransformation::class,
                                                                 'method' => 'saveImageFromUri',
-                                                                'params' => [
+                                                                'parameters' => [
                                                                         'storage' => '1:imported_images',
                                                                         'nameField' => 'picture_title',
                                                                         'defaultExtension' => 'jpg'

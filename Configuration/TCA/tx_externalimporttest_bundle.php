@@ -38,7 +38,7 @@ return [
                                         'field' => 'position',
                                         'transformations' => [
                                                 10 => [
-                                                        'userFunc' => [
+                                                        'userFunction' => [
                                                                 'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
                                                                 'method' => 'stripPositionMarker'
                                                         ]

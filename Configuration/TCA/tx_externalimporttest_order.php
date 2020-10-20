@@ -68,10 +68,10 @@ return [
                                         'field' => 'date',
                                         'transformations' => [
                                                 10 => [
-                                                        'userFunc' => [
+                                                        'userFunction' => [
                                                                 'class' => \Cobweb\ExternalImport\Transformation\DateTimeTransformation::class,
                                                                 'method' => 'parseDate',
-                                                                'params' => [
+                                                                'parameters' => [
                                                                         'enforceTimeZone' => true
                                                                 ]
                                                         ]
