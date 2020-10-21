@@ -23,9 +23,5 @@
 		"cobweb/svconnector_csv": ">=2.2.0",
 		"cobweb/svconnector_feed": ">=2.2.0",
 		"cobweb/svconnector_json": ">=2.2.0"
-	},
-	"replace": {
-		"externalimport_test": "self.version",
-		"typo3-ter/externalimport_test": "self.version"
 	}
 }
