@@ -98,7 +98,7 @@ return [
                                 'useColumnIndex' => 'baz',
                                 'customSteps' => [
                                         [
-                                                'class' => \Cobweb\ExternalImport\Step\HandleDataStep::class,
+                                                'class' => \Cobweb\ExternalimportTest\Step\EnhanceDataStep::class,
                                                 'position' => 'next:' . \Cobweb\ExternalImport\Step\TransformDataStep::class
                                         ]
                                 ],
