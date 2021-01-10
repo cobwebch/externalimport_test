@@ -63,3 +63,14 @@ $GLOBALS['TCA']['sys_category']['columns']['parent']['external']['column_configu
                 ]
         ]
 ];
+$GLOBALS['TCA']['sys_category']['columns']['hidden']['external']['column_configuration_errors'] = [
+        'field' => 3,
+        'children' => [
+                'columns' => [
+                        'foo' => [
+                                'map' => 4
+                        ]
+                ],
+                'controlColumnsForUpdate' => 'bar'
+        ]
+];
