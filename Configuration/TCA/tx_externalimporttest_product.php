@@ -89,8 +89,8 @@ return [
                                 'disabledOperations' => 'insert,delete',
                                 'description' => 'List of products for stores'
                         ],
-                        // Configuration with errors, for testing the control configuration validator
-                        'control_configuration_errors' => [
+                        // Configuration with errors, for testing the general configuration validator
+                        'general_configuration_errors' => [
                                 'connector' => 'foo',
                                 'data' => 'bar',
                                 'dataHandler' => \Cobweb\ExternalImport\Importer::class,
@@ -102,7 +102,7 @@ return [
                                                 'position' => 'next:' . \Cobweb\ExternalImport\Step\TransformDataStep::class
                                         ]
                                 ],
-                                'description' => 'Configuration with errors for testing the control configuration validator'
+                                'description' => 'Configuration with errors for testing the general configuration validator'
                         ],
                         'updated_products' => [
                                 'connector' => 'csv',
