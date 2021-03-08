@@ -23,6 +23,12 @@
     ]
   },
   {
+    "order": "000003",
+    "date": "2021-03-07 17:56",
+    "customer": "Empty basket",
+    "products": []
+  },
+  {
     "order": "000002",
     "date": "2020-08-08 06:48",
     "customer": "Sonja the Red",
