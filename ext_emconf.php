@@ -34,7 +34,7 @@ $EM_CONF[$_EXTKEY] = [
                                         'svconnector_feed' => '2.2.0-0.0.0',
                                         'svconnector_csv' => '2.2.0-0.0.0',
                                         'svconnector_json' => '2.2.0-0.0.0',
-                                        'typo3' => '9.5.0-10.4.99',
+                                        'typo3' => '10.4.99-11.99.99',
                                 ],
                         'conflicts' =>
                                 [
