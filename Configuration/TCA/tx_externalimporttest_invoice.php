@@ -1,11 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
-
-/*
- * Invoices are used to test XML import with namespaces
- */
+// Invoices are used to test XML import with namespaces
 return [
         'ctrl' => [
                 'title' => 'Invoices',
@@ -37,9 +31,6 @@ return [
                                 'description' => 'List of invoices'
                         ]
                 ]
-        ],
-        'interface' => [
-                'showRecordFieldList' => 'invoice_id, order_id, amount, currency'
         ],
         'columns' => [
                 'invoice_id' => [

@@ -1,8 +1,4 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
-
 return [
         'ctrl' => [
                 'title' => 'Designers',
@@ -30,9 +26,6 @@ return [
                                 'description' => 'Product designers'
                         ]
                 ]
-        ],
-        'interface' => [
-                'showRecordFieldList' => 'code,name'
         ],
         'columns' => [
                 'code' => [

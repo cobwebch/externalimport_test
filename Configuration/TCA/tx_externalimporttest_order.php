@@ -1,11 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
-
-/*
- * Orders are used to test IRRE relations
- */
+// Orders are used to test IRRE relations
 return [
         'ctrl' => [
                 'title' => 'Orders',
@@ -31,9 +25,6 @@ return [
                                 'description' => 'List of orders'
                         ]
                 ]
-        ],
-        'interface' => [
-                'showRecordFieldList' => 'order_id,client_id,order_date,products'
         ],
         'columns' => [
                 'order_id' => [

@@ -1,11 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
-
-/*
- * Stores are used to test MM relations with opposite fields.
- */
+// Stores are used to test MM relations with opposite fields.
 return [
         'ctrl' => [
                 'title' => 'Stores',
@@ -42,9 +36,6 @@ return [
                                 ]
                         ]
                 ]
-        ],
-        'interface' => [
-                'showRecordFieldList' => 'store_code,name'
         ],
         'columns' => [
                 'store_code' => [

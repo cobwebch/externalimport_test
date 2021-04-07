@@ -1,8 +1,4 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
-
 return [
         'ctrl' => [
                 'title' => 'Products',
@@ -128,9 +124,6 @@ return [
                                 ]
                         ]
                 ]
-        ],
-        'interface' => [
-                'showRecordFieldList' => 'sku,name'
         ],
         'columns' => [
                 'sku' => [

@@ -10,9 +10,6 @@ return [
                         'default' => 'tx_externalimporttest-orderitem'
                 ],
         ],
-        'interface' => [
-                'showRecordFieldList' => 'uid_local,quantity'
-        ],
         'columns' => [
                 'uid_local' => [
                         'exclude' => 0,

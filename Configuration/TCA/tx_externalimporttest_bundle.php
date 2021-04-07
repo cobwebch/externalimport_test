@@ -1,8 +1,4 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
-
 /*
  * Bundles are used to test MM relations.
  * They also use an additional field in the MM relation to test sorting.
@@ -47,9 +43,6 @@ return [
                                 ]
                         ]
                 ]
-        ],
-        'interface' => [
-                'showRecordFieldList' => 'bundle_code,name'
         ],
         'columns' => [
                 'bundle_code' => [

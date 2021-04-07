@@ -1,8 +1,4 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
-
 return [
         'ctrl' => [
                 'title' => 'Tags',
@@ -53,9 +49,6 @@ return [
                                 'description' => 'Tags defined via the import API'
                         ]
                 ]
-        ],
-        'interface' => [
-                'showRecordFieldList' => 'code,name'
         ],
         'columns' => [
                 'code' => [
