@@ -2,11 +2,6 @@
 # Table structure for products
 #
 CREATE TABLE tx_externalimporttest_product (
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-	tstamp int(11) DEFAULT '0' NOT NULL,
-	crdate int(11) DEFAULT '0' NOT NULL,
-	cruser_id int(11) DEFAULT '0' NOT NULL,
 	sku varchar(255) DEFAULT '' NOT NULL,
 	name varchar(255) DEFAULT '' NOT NULL,
 	path_segment varchar(2048) DEFAULT '' NOT NULL,
@@ -14,77 +9,44 @@ CREATE TABLE tx_externalimporttest_product (
 	attributes text,
 	stores int(11) DEFAULT '0' NOT NULL,
 	categories int(11) DEFAULT '0' NOT NULL,
-	pictures int(11) DEFAULT '0' NOT NULL,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid)
+	pictures int(11) DEFAULT '0' NOT NULL
 );
 
 #
 # Table structure for tags
 #
 CREATE TABLE tx_externalimporttest_tag (
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-	tstamp int(11) DEFAULT '0' NOT NULL,
-	crdate int(11) DEFAULT '0' NOT NULL,
-	cruser_id int(11) DEFAULT '0' NOT NULL,
 	code varchar(20) DEFAULT '' NOT NULL,
-	name varchar(255) DEFAULT '' NOT NULL,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid)
+	name varchar(255) DEFAULT '' NOT NULL
 );
 
 #
 # Table structure for designers
 #
 CREATE TABLE tx_externalimporttest_designer (
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-	tstamp int(11) DEFAULT '0' NOT NULL,
-	crdate int(11) DEFAULT '0' NOT NULL,
-	cruser_id int(11) DEFAULT '0' NOT NULL,
 	name varchar(255) DEFAULT '' NOT NULL,
-	code varchar(20) DEFAULT '' NOT NULL,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid)
+	code varchar(20) DEFAULT '' NOT NULL
 );
 
 #
 # Table structure for orders
 #
 CREATE TABLE tx_externalimporttest_order (
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-	tstamp int(11) DEFAULT '0' NOT NULL,
-	crdate int(11) DEFAULT '0' NOT NULL,
-	cruser_id int(11) DEFAULT '0' NOT NULL,
 	order_date int(11) DEFAULT '0' NOT NULL,
 	products int(11) DEFAULT '0' NOT NULL,
 	client_id varchar(255) DEFAULT '' NOT NULL,
-	order_id varchar(255) DEFAULT '' NOT NULL,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid)
+	order_id varchar(255) DEFAULT '' NOT NULL
 );
 
 #
 # Table structure for order details
 #
 CREATE TABLE tx_externalimporttest_order_items (
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-	crdate int(11) DEFAULT '0' NOT NULL,
-	tstamp int(11) DEFAULT '0' NOT NULL,
-	cruser_id int(11) DEFAULT '0' NOT NULL,
 	uid_local int(11) DEFAULT '0' NOT NULL,
 	uid_foreign int(11) DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) DEFAULT '0' NOT NULL,
 	quantity int(11) DEFAULT '0' NOT NULL,
 
-	PRIMARY KEY (uid),
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
@@ -93,18 +55,10 @@ CREATE TABLE tx_externalimporttest_order_items (
 # Table structure for bundles
 #
 CREATE TABLE tx_externalimporttest_bundle (
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-	tstamp int(11) DEFAULT '0' NOT NULL,
-	crdate int(11) DEFAULT '0' NOT NULL,
-	cruser_id int(11) DEFAULT '0' NOT NULL,
 	name varchar(255) DEFAULT '' NOT NULL,
 	products int(11) DEFAULT '0' NOT NULL,
 	bundle_code char(10) DEFAULT '' NOT NULL,
-	maker varchar(255) DEFAULT '' NOT NULL,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid)
+	maker varchar(255) DEFAULT '' NOT NULL
 );
 
 #
@@ -123,17 +77,9 @@ CREATE TABLE tx_externalimporttest_bundle_product_mm (
 # Table structure for stores
 #
 CREATE TABLE tx_externalimporttest_store (
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-	tstamp int(11) DEFAULT '0' NOT NULL,
-	crdate int(11) DEFAULT '0' NOT NULL,
-	cruser_id int(11) DEFAULT '0' NOT NULL,
 	name varchar(255) DEFAULT '' NOT NULL,
 	store_code char(10) DEFAULT '' NOT NULL,
-	products int(11) DEFAULT '0' NOT NULL,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid)
+	products int(11) DEFAULT '0' NOT NULL
 );
 
 #
@@ -149,18 +95,10 @@ CREATE TABLE tx_externalimporttest_store_product (
 # Table structure for invoices
 #
 CREATE TABLE tx_externalimporttest_invoice (
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-	tstamp int(11) DEFAULT '0' NOT NULL,
-	crdate int(11) DEFAULT '0' NOT NULL,
-	cruser_id int(11) DEFAULT '0' NOT NULL,
 	invoice_id varchar(255) DEFAULT '' NOT NULL,
 	order_id int(11) DEFAULT '0' NOT NULL,
 	amount double(11,2) DEFAULT '0.0' NOT NULL,
-	currency char(3) DEFAULT 'USD' NOT NULL,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid)
+	currency char(3) DEFAULT 'USD' NOT NULL
 );
 
 #
