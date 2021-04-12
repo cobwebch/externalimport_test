@@ -117,12 +117,15 @@ return [
                         'external' => [
                                 0 => [
                                         'field' => 'product',
-                                        'MM' => [
-                                                'mapping' => [
-                                                        'table' => 'tx_externalimporttest_product',
-                                                        'referenceField' => 'sku'
-                                                ],
-                                                'sorting' => 'position'
+                                        'multipleRows' => true,
+                                        'multipleSorting' => 'position',
+                                        'transformations' => [
+                                                10 => [
+                                                        'mapping' => [
+                                                                'table' => 'tx_externalimporttest_product',
+                                                                'referenceField' => 'sku'
+                                                        ]
+                                                ]
                                         ]
                                 ]
                         ]
