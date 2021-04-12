@@ -137,17 +137,12 @@ CREATE TABLE tx_externalimporttest_store (
 );
 
 #
-# Table structure for order bundle items
+# Table structure for store stocks
 #
-CREATE TABLE tx_externalimporttest_store_product_mm (
-	uid_local int(11) DEFAULT '0' NOT NULL,
-	uid_foreign int(11) DEFAULT '0' NOT NULL,
-	sorting int(11) DEFAULT '0' NOT NULL,
-	sorting_foreign int(11) DEFAULT '0' NOT NULL,
-	stock int(11) DEFAULT '0' NOT NULL,
-
-	KEY uid_local (uid_local),
-	KEY uid_foreign (uid_foreign)
+CREATE TABLE tx_externalimporttest_store_product (
+	store int(11) DEFAULT '0' NOT NULL,
+	product int(11) DEFAULT '0' NOT NULL,
+	stock int(11) DEFAULT '0' NOT NULL
 );
 
 #

@@ -79,26 +79,36 @@ return [
                         'exclude' => 0,
                         'label' => 'Products',
                         'config' => [
-                                'type' => 'select',
-                                'renderType' => 'selectMultipleSideBySide',
-                                'foreign_table' => 'tx_externalimporttest_product',
-                                'foreign_table_where' => 'ORDER BY name',
-                                'MM' => 'tx_externalimporttest_store_product_mm',
-                                'size' => 10,
-                                'minitems' => 1,
-                                'maxitems' => 9990
+                                'type' => 'inline',
+                                'foreign_table' => 'tx_externalimporttest_store_product',
+                                'foreign_field' => 'store'
                         ],
                         'external' => [
                                 0 => [
                                         'field' => 'product',
-                                        'MM' => [
-                                                'mapping' => [
-                                                        'table' => 'tx_externalimporttest_product',
-                                                        'referenceField' => 'sku'
-                                                ],
-                                                'additionalFields' => [
-                                                        'stock' => 'quantity'
+                                        'transformations' => [
+                                                10 => [
+                                                        'mapping' => [
+                                                                'table' => 'tx_externalimporttest_product',
+                                                                'referenceField' => 'sku'
+                                                        ]
                                                 ]
+                                        ],
+                                        'children' => [
+                                                'table' => 'tx_externalimporttest_store_product',
+                                                'columns' => [
+                                                        'store' => [
+                                                                'field' => '__parent.id__'
+                                                        ],
+                                                        'product' => [
+                                                                'field' => 'products'
+                                                        ],
+                                                        'stock' => [
+                                                                'field' => 'quantity'
+                                                        ]
+                                                ],
+                                                'controlColumnsForUpdate' => 'store, product',
+                                                'controlColumnsForDelete' => 'store'
                                         ]
                                 ]
                         ]
