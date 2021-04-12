@@ -4,6 +4,7 @@ if (!defined ('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_externalimporttest_product');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_externalimporttest_store_product');
 
 // Register sprite icons for new tables
 /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
