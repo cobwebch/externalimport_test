@@ -18,7 +18,6 @@
 	},
 	"require": {
 		"typo3/cms-core": ">=10.4.0,<12.0",
-		"cobweb/external_import": "dev-bettong",
 		"cobweb/svconnector_csv": "dev-develop",
 		"cobweb/svconnector_feed": "dev-develop",
 		"cobweb/svconnector_json": "dev-develop"
