@@ -1,0 +1,6 @@
+services:
+  Cobweb\ExternalimportTest\EventListener\ParametersProcessor:
+    tags:
+      - name: event.listener
+        identifier: 'processParameters'
+        event: Cobweb\ExternalImport\Event\ProcessConnectorParametersEvent

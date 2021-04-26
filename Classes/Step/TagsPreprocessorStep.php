@@ -24,19 +24,23 @@ use Cobweb\ExternalImport\Step\AbstractStep;
  *
  * @package Cobweb\ExternalimportTest\Step
  */
-class EnhanceDataStep extends AbstractStep
+class TagsPreprocessorStep extends AbstractStep
 {
+
     /**
-     * Performs some dummy operation to demonstrate custom steps.
+     * Filters out some records from the raw data for the tags table.
      *
-     * @return void
+     * Any name containing an asterisk is considered censored and thus removed.
      */
     public function run(): void
     {
         $records = $this->getData()->getRecords();
         foreach ($records as $index => $record) {
-            $records[$index]['name'] = $record['name'] . $this->parameters['tag'];
+            if (strpos($record['name'], '*') !== false) {
+                unset($records[$index]);
+            }
         }
+        $records = array_values($records);
         $this->getData()->setRecords($records);
         // Set the filtered records as preview data
         $this->importer->setPreviewData($records);

@@ -24,6 +24,12 @@ return [
                                 ],
                                 'data' => 'array',
                                 'referenceUid' => 'code',
+                                'customSteps' => [
+                                        [
+                                                'class' => \Cobweb\ExternalimportTest\Step\TagsPreprocessorStep::class,
+                                                'position' => 'after:' . \Cobweb\ExternalImport\Step\HandleDataStep::class
+                                        ]
+                                ],
                                 'priority' => 5000,
                                 'description' => 'List of tags'
                         ],

@@ -1,5 +1,8 @@
 <?php
-namespace Cobweb\ExternalimportTest\Hook;
+
+declare(strict_types=1);
+
+namespace Cobweb\ExternalimportTest\EventListener;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -14,31 +17,25 @@ namespace Cobweb\ExternalimportTest\Hook;
  * The TYPO3 project - inspiring people to share!
  */
 
-use Cobweb\ExternalImport\Domain\Model\Configuration;
+
+use Cobweb\ExternalImport\Event\ProcessConnectorParametersEvent;
 
 /**
- * Example hooks for the 'externalimport_test' extension
+ * Reacts to the event for processing connector parameters
  *
- * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package TYPO3
+ * @package Cobweb\ExternalimportTest\EventListener
  */
-class Hooks
+class ParametersProcessor
 {
-    /**
-     * Pre-processes the given connector parameters.
-     *
-     * @param array $parameters List of connector parameters
-     * @param Configuration $configuration Reference to the current Configuration object
-     * @return array Modified parameters
-     */
-    public function processParameters($parameters, $configuration): array
+    public function __invoke(ProcessConnectorParametersEvent $event): void
     {
+        $parameters = $event->getParameters();
         foreach ($parameters as $key => $value) {
             // Remove the "SILLYMARKER" string from the "uri" parameter, if it exists
             if ($key === 'uri' && strpos($value, 'SILLYMARKER') !== false) {
                 $parameters[$key] = str_replace('SILLYMARKER', '', $value);
             }
         }
-        return $parameters;
+        $event->setParameters($parameters);
     }
 }
