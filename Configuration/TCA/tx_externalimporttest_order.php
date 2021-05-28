@@ -20,6 +20,7 @@ return [
                                         'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Orders.json'
                                 ],
                                 'data' => 'array',
+                                'arrayPath' => 'data/orders',
                                 'referenceUid' => 'order_id',
                                 'priority' => 5300,
                                 'description' => 'List of orders'

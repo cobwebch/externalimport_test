@@ -1,50 +1,56 @@
-[
-  {
-    "order": "000001",
-    "date": "2020-08-07 14:32",
-    "customer": "Conan the Barbarian",
-    "products": [
+{
+  "count": 2,
+  "data": {
+    "orders" : [
       {
-        "product": "000001",
-        "qty": 3
+        "order": "000001",
+        "date": "2020-08-07 14:32",
+        "customer": "Conan the Barbarian",
+        "products": [
+          {
+            "product": "000001",
+            "qty": 3
+          },
+          {
+            "product": "000005",
+            "qty": 1
+          },
+          {
+            "product": "000101",
+            "qty": 10
+          },
+          {
+            "product": "000102",
+            "qty": 2
+          }
+        ]
       },
       {
-        "product": "000005",
-        "qty": 1
+        "order": "000003",
+        "date": "2021-03-07 17:56",
+        "customer": "Empty basket",
+        "products": []
       },
       {
-        "product": "000101",
-        "qty": 10
-      },
-      {
-        "product": "000102",
-        "qty": 2
-      }
-    ]
-  },
-  {
-    "order": "000003",
-    "date": "2021-03-07 17:56",
-    "customer": "Empty basket",
-    "products": []
-  },
-  {
-    "order": "000002",
-    "date": "2020-08-08 06:48",
-    "customer": "Sonja the Red",
-    "products": [
-      {
-        "product": "000001",
-        "qty": 1
-      },
-      {
-        "product": "000005",
-        "qty": 2
-      },
-      {
-        "product": "000202",
-        "qty": 1
+        "order": "000002",
+        "date": "2020-08-08 06:48",
+        "customer": "Sonja the Red",
+        "products": [
+          {
+            "product": "000001",
+            "qty": 1
+          },
+          {
+            "product": "000005",
+            "qty": 2
+          },
+          {
+            "product": "000202",
+            "qty": 1
+          }
+        ]
       }
     ]
   }
-]
+}
+
