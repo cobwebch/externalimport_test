@@ -1,7 +1,4 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
 
 /**
  * Import of product into pages is used to test the creation of pages,
@@ -28,7 +25,7 @@ $newColumn = [
 $GLOBALS['TCA']['pages']['external']['general']['product_pages'] = [
         'connector' => 'csv',
         'parameters' => [
-                'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/ProductPages.csv',
+                'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/ProductPages.csv',
                 'delimiter' => ';',
                 'text_qualifier' => '',
                 'encoding' => 'utf8',

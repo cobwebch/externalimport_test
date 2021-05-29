@@ -132,6 +132,6 @@ return [
                 ]
         ],
         'types' => [
-                '0' => ['showitem' => 'name,code,products']
+                '0' => ['showitem' => 'name,code,maker,products']
         ],
 ];

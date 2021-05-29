@@ -1,7 +1,4 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
 
 /**
  * Import of categories for testing import of categorized products.
@@ -26,7 +23,7 @@ $newColumn = [
 $GLOBALS['TCA']['sys_category']['external']['general']['product_categories'] = [
         'connector' => 'csv',
         'parameters' => [
-                'filename' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('externalimport_test') . 'Resources/Private/ImportData/Test/Categories.csv',
+                'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Categories.csv',
                 'delimiter' => ';',
                 'text_qualifier' => '',
                 'encoding' => 'utf8'
