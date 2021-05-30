@@ -20,8 +20,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Core\Bootstrap;
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 /**
  * Command-line tool to test the import API.
@@ -48,18 +48,17 @@ class ImportCommand extends Command
      * @param InputInterface $input
      * @param OutputInterface $output
      *
-     * @return void
+     * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // Make sure the _cli_ user is loaded
-        Bootstrap::getInstance()->initializeBackendAuthentication();
+        Bootstrap::initializeBackendAuthentication();
 
         $io = new SymfonyStyle($input, $output);
         $io->title($this->getDescription());
 
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        $importer = $objectManager->get(Importer::class);
+        $importer = GeneralUtility::makeInstance(Importer::class);
         $result = $importer->import(
                 'tx_externalimporttest_tag',
                 'api',
@@ -74,17 +73,22 @@ class ImportCommand extends Command
                         ]
                 ]
         );
-        $output = [];
+        $outputTable = [];
         foreach ($result as $status => $messages) {
             if (count($messages) > 0) {
                 foreach ($messages as $message) {
-                    $output[] = [$status, $message];
+                    $outputTable[] = [$status, $message];
                 }
             }
         }
         $io->table(
                 ['Status', 'Message'],
-                $output
+                $outputTable
         );
+
+        if (count($result[AbstractMessage::ERROR]) > 0 || count($result[AbstractMessage::WARNING]) > 0) {
+            return Command::FAILURE;
+        }
+        return Command::SUCCESS;
     }
 }

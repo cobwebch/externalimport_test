@@ -52,6 +52,7 @@ return [
                         'api' => [
                                 'data' => 'array',
                                 'referenceUid' => 'code',
+                                'disabledOperations' => 'delete',
                                 'description' => 'Tags defined via the import API'
                         ]
                 ]
