@@ -64,4 +64,24 @@ class Transformation implements ImporterAwareInterface
     {
         return str_replace('#', '', $record[$index]);
     }
+
+    /**
+     * Checks if a store is ok or not, removes it if not
+     *
+     * @param array $record The full record that is being transformed
+     * @param string $index The index of the field to transform
+     * @param array $params Additional parameters from the TCA
+     * @return string
+     * @throws \Cobweb\ExternalImport\Exception\InvalidRecordException
+     */
+    public function checkStoreStatus(array $record, string $index, array $params): string
+    {
+        if ($record[$index] === 'ko') {
+            throw new \Cobweb\ExternalImport\Exception\InvalidRecordException(
+                'Store status is ko',
+                1628877369
+            );
+        }
+        return $record[$index];
+    }
 }

@@ -33,6 +33,17 @@ return [
                         0 => [
                                 'quantity' => [
                                         'field' => 'qty'
+                                ],
+                                'status' => [
+                                        'field' => 'status',
+                                        'transformations' => [
+                                                10 => [
+                                                        'userFunction' => [
+                                                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                                                'method' => 'checkStoreStatus'
+                                                        ]
+                                                ]
+                                        ]
                                 ]
                         ]
                 ]

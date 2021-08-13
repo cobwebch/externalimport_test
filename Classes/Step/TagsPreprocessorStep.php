@@ -31,6 +31,11 @@ class TagsPreprocessorStep extends AbstractStep
      * Filters out some records from the raw data for the tags table.
      *
      * Any name containing an asterisk is considered censored and thus removed.
+     *
+     * NOTE: since external_import 6.0.0, this would be better achieved by calling
+     * a user function during the transformation step throwing
+     * \Cobweb\ExternalImport\Exception\InvalidRecordException.
+     * See: \Cobweb\ExternalimportTest\UserFunction\Transformation::checkStoreStatus
      */
     public function run(): void
     {
