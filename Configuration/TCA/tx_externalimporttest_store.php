@@ -1,131 +1,138 @@
 <?php
+
 // Stores are used to test MM relations with opposite fields.
 return [
-        'ctrl' => [
-                'title' => 'Stores',
-                'label' => 'name',
-                'tstamp' => 'tstamp',
-                'crdate' => 'crdate',
-                'cruser_id' => 'cruser_id',
-                'default_sortby' => 'ORDER BY name',
-                'typeicon_classes' => [
-                        'default' => 'tx_externalimporttest-store'
-                ]
-        ],
-        'external' => [
-                'general' => [
-                        0 => [
-                                'connector' => 'csv',
-                                'parameters' => [
-                                        'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Stores.csv',
-                                        'delimiter' => ';',
-                                        'text_qualifier' => '',
-                                        'encoding' => 'utf8',
-                                        'skip_rows' => 1
-                                ],
-                                'data' => 'array',
-                                'referenceUid' => 'store_code',
-                                'priority' => 5400,
-                                'description' => 'List of stores'
-                        ]
+    'ctrl' => [
+        'title' => 'Stores',
+        'label' => 'name',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'default_sortby' => 'ORDER BY name',
+        'typeicon_classes' => [
+            'default' => 'tx_externalimporttest-store'
+        ]
+    ],
+    'external' => [
+        'general' => [
+            0 => [
+                'connector' => 'csv',
+                'parameters' => [
+                    'filename' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/Stores.csv',
+                    'delimiter' => ';',
+                    'text_qualifier' => '',
+                    'encoding' => 'utf8',
+                    'skip_rows' => 1
                 ],
-                'additionalFields' => [
-                        0 => [
-                                'quantity' => [
-                                        'field' => 'qty'
-                                ],
-                                'status' => [
-                                        'field' => 'status',
-                                        'transformations' => [
-                                                10 => [
-                                                        'userFunction' => [
-                                                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
-                                                                'method' => 'checkStoreStatus'
-                                                        ]
-                                                ]
-                                        ]
-                                ]
-                        ]
-                ]
+                'data' => 'array',
+                'referenceUid' => 'store_code',
+                'priority' => 5400,
+                'description' => 'List of stores'
+            ]
         ],
-        'columns' => [
-                'store_code' => [
-                        'exclude' => 0,
-                        'label' => 'Code',
-                        'config' => [
-                                'type' => 'input',
-                                'size' => 10
-                        ],
-                        'external' => [
-                                0 => [
-                                        'field' => 'code',
-                                        'transformations' => [
-                                                10 => [
-                                                        'trim' => true
-                                                ]
-                                        ]
-                                ]
-                        ]
+        'additionalFields' => [
+            0 => [
+                'quantity' => [
+                    'field' => 'qty'
                 ],
-                'name' => [
-                        'exclude' => 0,
-                        'label' => 'Name',
-                        'config' => [
-                                'type' => 'input',
-                                'size' => 30,
-                                'eval' => 'required,trim',
-                        ],
-                        'external' => [
-                                0 => [
-                                        'field' => 'name',
-                                        'transformations' => [
-                                                10 => [
-                                                        'trim' => true
-                                                ]
-                                        ]
-                                ]
+                'status' => [
+                    'field' => 'status',
+                    'transformations' => [
+                        10 => [
+                            'userFunction' => [
+                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                'method' => 'checkStoreStatus'
+                            ]
                         ]
-                ],
-                'products' => [
-                        'exclude' => 0,
-                        'label' => 'Products',
-                        'config' => [
-                                'type' => 'inline',
-                                'foreign_table' => 'tx_externalimporttest_store_product',
-                                'foreign_field' => 'store'
-                        ],
-                        'external' => [
-                                0 => [
-                                        'field' => 'product',
-                                        'transformations' => [
-                                                10 => [
-                                                        'mapping' => [
-                                                                'table' => 'tx_externalimporttest_product',
-                                                                'referenceField' => 'sku'
-                                                        ]
-                                                ]
-                                        ],
-                                        'children' => [
-                                                'table' => 'tx_externalimporttest_store_product',
-                                                'columns' => [
-                                                        'store' => [
-                                                                'field' => '__parent.id__'
-                                                        ],
-                                                        'product' => [
-                                                                'field' => 'products'
-                                                        ],
-                                                        'stock' => [
-                                                                'field' => 'quantity'
-                                                        ]
-                                                ],
-                                                'controlColumnsForUpdate' => 'store, product',
-                                                'controlColumnsForDelete' => 'store'
-                                        ]
-                                ]
-                        ]
+                    ]
                 ]
+            ]
+        ]
+    ],
+    'columns' => [
+        'store_code' => [
+            'exclude' => 0,
+            'label' => 'Code',
+            'config' => [
+                'type' => 'input',
+                'size' => 10
+            ],
+            'external' => [
+                0 => [
+                    'field' => 'code',
+                    'transformations' => [
+                        10 => [
+                            'trim' => true
+                        ],
+                        20 => [
+                            'isEmpty' => [
+                                'expression' => 'store_code === ""',
+                                'invalidate' => true
+                            ]
+                        ],
+                    ]
+                ]
+            ]
         ],
-        'types' => [
-                '0' => ['showitem' => 'name, code, products']
+        'name' => [
+            'exclude' => 0,
+            'label' => 'Name',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'required,trim',
+            ],
+            'external' => [
+                0 => [
+                    'field' => 'name',
+                    'transformations' => [
+                        10 => [
+                            'trim' => true
+                        ]
+                    ]
+                ]
+            ]
         ],
+        'products' => [
+            'exclude' => 0,
+            'label' => 'Products',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_externalimporttest_store_product',
+                'foreign_field' => 'store'
+            ],
+            'external' => [
+                0 => [
+                    'field' => 'product',
+                    'transformations' => [
+                        10 => [
+                            'mapping' => [
+                                'table' => 'tx_externalimporttest_product',
+                                'referenceField' => 'sku'
+                            ]
+                        ]
+                    ],
+                    'children' => [
+                        'table' => 'tx_externalimporttest_store_product',
+                        'columns' => [
+                            'store' => [
+                                'field' => '__parent.id__'
+                            ],
+                            'product' => [
+                                'field' => 'products'
+                            ],
+                            'stock' => [
+                                'field' => 'quantity'
+                            ]
+                        ],
+                        'controlColumnsForUpdate' => 'store, product',
+                        'controlColumnsForDelete' => 'store'
+                    ]
+                ]
+            ]
+        ]
+    ],
+    'types' => [
+        '0' => ['showitem' => 'name, code, products']
+    ],
 ];
