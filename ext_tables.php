@@ -1,7 +1,4 @@
 <?php
-if (!defined ('TYPO3_MODE')) {
-    die ('Access denied.');
-}
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_externalimporttest_product');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_externalimporttest_store_product');
