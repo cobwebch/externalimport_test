@@ -27,7 +27,8 @@ CREATE TABLE tx_externalimporttest_tag (
 CREATE TABLE tx_externalimporttest_designer (
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(20) DEFAULT '' NOT NULL,
-	products int(11) DEFAULT '0' NOT NULL
+	products int(11) DEFAULT '0' NOT NULL,
+	picture int(11) DEFAULT '0' NOT NULL
 );
 
 CREATE TABLE tx_externalimporttest_product_designer_mm (

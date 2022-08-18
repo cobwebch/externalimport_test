@@ -85,9 +85,57 @@ return [
                     ]
                 ]
             ]
+        ],
+        'picture' => [
+            'exclude' => 0,
+            'label' => 'Picture',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('picture'),
+            'external' => [
+                0 => [
+                    'field' => 'photo',
+                    'transformations' => [
+                        10 => [
+                            'userFunction' => [
+                                'class' => \Cobweb\ExternalImport\Transformation\ImageTransformation::class,
+                                'method' => 'saveImageFromBase64',
+                                'parameters' => [
+                                    'storage' => '1:imported_images',
+                                    'nameField' => 'name',
+                                    'defaultExtension' => 'jpg'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'children' => [
+                        'table' => 'sys_file_reference',
+                        'columns' => [
+                            'uid_local' => [
+                                'field' => 'picture'
+                            ],
+                            'uid_foreign' => [
+                                'field' => '__parent.id__'
+                            ],
+                            'title' => [
+                                'field' => 'name'
+                            ],
+                            'tablenames' => [
+                                'value' => 'tx_externalimporttest_designer'
+                            ],
+                            'fieldname' => [
+                                'value' => 'picture'
+                            ],
+                            'table_local' => [
+                                'value' => 'sys_file'
+                            ]
+                        ],
+                        'controlColumnsForUpdate' => 'uid_local, uid_foreign, tablenames, fieldname, table_local',
+                        'controlColumnsForDelete' => 'uid_foreign, tablenames, fieldname, table_local',
+                    ]
+                ]
+            ]
         ]
     ],
     'types' => [
-        '0' => ['showitem' => 'name,code,products']
+        '0' => ['showitem' => 'name,code,products,picture']
     ],
 ];
