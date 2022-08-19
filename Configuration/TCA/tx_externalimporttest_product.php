@@ -159,6 +159,22 @@ return [
                 'base' => [
                     'xpath' => './self::*[@type="current"]/item',
                 ],
+                // Overrides the "base" index configuration, which is normally reused because of the "useColumnIndex"
+                // property in the general configuration
+                'stable' => [
+                    'xpath' => './self::*[@type="current"]/item',
+                    'transformations' => [
+                        10 => [
+                            'userFunction' => [
+                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                'method' => 'caseTransformation',
+                                'parameters' => [
+                                    'transformation' => 'upper'
+                                ]
+                            ]
+                        ]
+                    ]
+                ],
                 'updated_products' => [
                     'field' => 'name'
                 ]

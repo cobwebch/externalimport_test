@@ -84,4 +84,22 @@ class Transformation implements ImporterAwareInterface
         }
         return $record[$index];
     }
+
+    /**
+     * Transforms a string to uppercase or lowercase (default behaviour)
+     *
+     * @param array $record The full record that is being transformed
+     * @param string $index The index of the field to transform
+     * @param array $params Additional parameters from the TCA ('transformation' => 'upper' for uppercase)
+     * @return string
+     */
+    public function caseTransformation(array $record, string $index, array $params): string
+    {
+        $value = (string)$record[$index];
+        if (array_key_exists('transformation', $params) && $params['transformation'] === 'upper') {
+            return mb_strtoupper($value);
+        }
+
+        return mb_strtolower($value);
+    }
 }
