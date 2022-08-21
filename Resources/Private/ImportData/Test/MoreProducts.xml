@@ -7,10 +7,12 @@
 <catalogue>
 	<products type="current">
 		<item sku="000101">Beer mug</item>
+		<date>2018-06-14 12:02:00</date>
 		<tags>fun,food,attack</tags>
 	</products>
 	<products type="current">
 		<item sku="000102">Barbarian welcome mat</item>
+		<date>2018-07-01 09:11:00</date>
 		<tags>fun,defense</tags>
 		<category>USELESS</category>
 	</products>

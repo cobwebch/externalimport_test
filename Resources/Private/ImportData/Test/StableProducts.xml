@@ -7,10 +7,12 @@
 <catalogue>
 	<products type="current">
 		<item sku="000201">Old iron kettle</item>
+		<date>2015-01-21 18:36:00</date>
 		<tags>food,attack</tags>
 	</products>
 	<products type="current">
 		<item sku="000202">Old frying pan</item>
+		<date>2015-02-18 16:24:00</date>
 		<tags>food,defense</tags>
 		<category>NICE</category>
 	</products>

@@ -194,6 +194,31 @@ return [
                 ]
             ]
         ],
+        'created' => [
+            'exclude' => false,
+            'label' => 'Date of creation',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'eval' => 'datetime'
+            ],
+            'external' => [
+                'base' => [
+                    'xpath' => './self::*[@type="current"]/date',
+                    'transformations' => [
+                        10 => [
+                            'userFunction' => [
+                                'class' => \Cobweb\ExternalImport\Transformation\DateTimeTransformation::class,
+                                'method' => 'parseDate',
+                                'parameters' => [
+                                    'enforceTimeZone' => true
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ],
         'tags' => [
             'exclude' => false,
             'label' => 'Tags',
@@ -372,6 +397,6 @@ return [
         ]
     ],
     'types' => [
-        '0' => ['showitem' => 'name, path_segment, sku, tags, attributes, pictures, stores, designers']
+        '0' => ['showitem' => 'name, path_segment, created, sku, tags, attributes, pictures, stores, designers']
     ],
 ];

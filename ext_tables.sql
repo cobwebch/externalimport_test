@@ -10,7 +10,8 @@ CREATE TABLE tx_externalimporttest_product (
 	stores int(11) DEFAULT '0' NOT NULL,
 	categories int(11) DEFAULT '0' NOT NULL,
 	pictures int(11) DEFAULT '0' NOT NULL,
-	designers int(11) DEFAULT '0' NOT NULL
+	designers int(11) DEFAULT '0' NOT NULL,
+	created int(11) DEFAULT '0' NOT NULL
 );
 
 #
