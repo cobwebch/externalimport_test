@@ -1,74 +1,79 @@
 [
- {
-   "name": "Bundle of joy",
-   "maker": {
-     "name": "Doctor Strange"
-   },
-   "code": "JOY01",
-   "product": "000101",
-   "position": "#1"
- },
- {
-   "name": "Bundle of joy",
-   "maker": {
-     "name": "Doctor Strange"
-   },
-   "code": "JOY01",
-   "product": "000102",
-   "position": "#2"
- },
- {
-   "name": "Bundle of pain",
-   "maker": {
-     "name": "Loki"
-   },
-   "code": "PAIN01",
-   "product": "000005",
-   "position": "#2"
- },
- {
-   "name": "Bundle of pain",
-   "maker": {
-     "name": "Loki"
-   },
-   "code": "PAIN01",
-   "product": "000001",
-   "position": "#1"
- },
- {
-   "name": "Bundle of extra pain",
-   "maker": {
-     "name": "Mad Max"
-   },
-   "code": "PAIN02",
-   "product": "000005",
-   "position": "#4"
- },
- {
-   "name": "Bundle of extra pain",
-   "maker": {
-     "name": "Mad Max"
-   },
-   "code": "PAIN02",
-   "product": "000001",
-   "position": "#2"
- },
- {
-   "name": "Bundle of extra pain",
-   "maker": {
-     "name": "Mad Max"
-   },
-   "code": "PAIN02",
-   "product": "000202",
-   "position": "#1"
- },
- {
-   "name": "Bundle of extra pain",
-   "maker": {
-     "name": "Mad Max"
-   },
-   "code": "PAIN02",
-   "product": "000201",
-   "position": "#3"
- }
+  {
+    "name": "Bundle of joy",
+    "maker": {
+      "name": "Doctor Strange"
+    },
+    "code": "JOY01",
+    "product": "000101",
+    "position": "#1"
+  },
+  {
+    "name": "Bundle of joy",
+    "maker": {
+      "name": "Doctor Strange"
+    },
+    "code": "JOY01",
+    "product": "000102",
+    "position": "#2"
+  },
+  {
+    "name": "Bundle of pain",
+    "maker": {
+      "name": "Loki"
+    },
+    "code": "PAIN01",
+    "product": "000005",
+    "position": "#2"
+  },
+  {
+    "name": "Bundle of pain",
+    "maker": {
+      "name": "Loki"
+    },
+    "code": "PAIN01",
+    "product": "000001",
+    "position": "#1"
+  },
+  {
+    "name": "Bundle of extra pain",
+    "maker": {
+      "name": "Mad Max"
+    },
+    "code": "PAIN02",
+    "product": "000005",
+    "position": "#4"
+  },
+  {
+    "name": "Bundle of extra pain",
+    "maker": {
+      "name": "Mad Max"
+    },
+    "code": "PAIN02",
+    "product": "000001",
+    "position": "#2"
+  },
+  {
+    "name": "Bundle of extra pain",
+    "maker": {
+      "name": "Mad Max"
+    },
+    "code": "PAIN02",
+    "product": "000202",
+    "position": "#1"
+  },
+  {
+    "name": "Bundle of extra pain",
+    "maker": {
+      "name": "Mad Max"
+    },
+    "code": "PAIN02",
+    "product": "000201",
+    "position": "#3"
+  },
+  {
+    "name": "Not imported (missing code)",
+    "product": "000201",
+    "position": "#1"
+  }
 ]
