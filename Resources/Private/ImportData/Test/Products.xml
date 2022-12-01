@@ -28,10 +28,12 @@
 			<picture>
 				<file>https://loremflickr.com/320/240/scotland</file>
 				<title>View from the left</title>
+				<sorting>2</sorting>
 			</picture>
 			<picture>
 				<file>https://loremflickr.com/320/240/volcano</file>
 				<title>View from above</title>
+				<sorting>1</sorting>
 			</picture>
 			<picture>
 				<file>https://sdnfjwrthioweorg.gdsg/wtf</file>

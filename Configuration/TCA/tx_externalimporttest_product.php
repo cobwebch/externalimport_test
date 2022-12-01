@@ -286,7 +286,10 @@ return [
                         ],
                         'picture_title' => [
                             'field' => 'title'
-                        ]
+                        ],
+                        'picture_order' => [
+                            'field' => 'sorting'
+                        ],
                     ],
                     'transformations' => [
                         10 => [
@@ -322,6 +325,10 @@ return [
                             'table_local' => [
                                 'value' => 'sys_file'
                             ]
+                        ],
+                        'sorting' => [
+                            'source' => 'picture_order',
+                            'target' => 'sorting_foreign'
                         ],
                         'controlColumnsForUpdate' => 'uid_local, uid_foreign, tablenames, fieldname, table_local',
                         'controlColumnsForDelete' => 'uid_foreign, tablenames, fieldname, table_local'
