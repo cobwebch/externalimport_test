@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <!--
-	This data set is designed for testing the followign features:
+	This data set is designed for testing the following features:
 
 	1) Usage of XPath
 	   a. The "item" nodes should be imported, but only those found within
@@ -11,7 +11,11 @@
 
 	2) Comma-separated multiple values
 	   Each tag should correspond to an entry in a separate DB table.
-	   Furthermore this MM relation does not use MM-related properties.
+	   Furthermore, this MM relation does not use MM-related properties.
+
+	3) Children import with pictures (IRRE), custom ordering of children
+
+	4) Import of inlined pictures (base64)
 -->
 <catalogue>
 	<products type="current">
