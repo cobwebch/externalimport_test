@@ -17,11 +17,11 @@
 		}
 	},
 	"require": {
-		"typo3/cms-core": ">=10.4.0,<12.0",
-		"cobweb/external_import": "^6.2",
-		"cobweb/svconnector_csv": "^3.0",
-		"cobweb/svconnector_feed": "^3.0",
-		"cobweb/svconnector_json": "^3.0"
+		"typo3/cms-core": "^11.5 || ^12.2",
+		"cobweb/external_import": "^6.3",
+		"cobweb/svconnector_csv": "^5.0",
+		"cobweb/svconnector_feed": "^5.0",
+		"cobweb/svconnector_json": "^5.0"
 	},
 	"extra": {
 		"typo3/cms": {
