@@ -18,10 +18,10 @@
 	},
 	"require": {
 		"typo3/cms-core": "^11.5 || ^12.2",
-		"cobweb/external_import": "^6.3",
-		"cobweb/svconnector_csv": "^5.0",
-		"cobweb/svconnector_feed": "^5.0",
-		"cobweb/svconnector_json": "^5.0"
+		"cobweb/external_import": "dev-develop",
+		"cobweb/svconnector_csv": "^4.0",
+		"cobweb/svconnector_feed": "^4.0",
+		"cobweb/svconnector_json": "^4.0"
 	},
 	"extra": {
 		"typo3/cms": {
