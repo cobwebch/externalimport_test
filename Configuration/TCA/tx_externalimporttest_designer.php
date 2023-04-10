@@ -1,5 +1,8 @@
 <?php
 
+use Cobweb\ExternalImport\Transformation\ImageTransformation;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 return [
     'ctrl' => [
         'title' => 'Designers',
@@ -89,14 +92,14 @@ return [
         'picture' => [
             'exclude' => 0,
             'label' => 'Picture',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('picture'),
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig('picture'),
             'external' => [
                 0 => [
                     'field' => 'photo',
                     'transformations' => [
                         10 => [
                             'userFunction' => [
-                                'class' => \Cobweb\ExternalImport\Transformation\ImageTransformation::class,
+                                'class' => ImageTransformation::class,
                                 'method' => 'saveImageFromBase64',
                                 'parameters' => [
                                     'storage' => '1:imported_images',

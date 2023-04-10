@@ -1,6 +1,8 @@
 <?php
 
 // Stores are used to test MM relations with opposite fields.
+use Cobweb\ExternalimportTest\UserFunction\Transformation;
+
 return [
     'ctrl' => [
         'title' => 'Stores',
@@ -40,7 +42,7 @@ return [
                     'transformations' => [
                         10 => [
                             'userFunction' => [
-                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                'class' => Transformation::class,
                                 'method' => 'checkStoreStatus'
                             ]
                         ]

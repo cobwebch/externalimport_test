@@ -1,5 +1,13 @@
 <?php
 
+use Cobweb\ExternalImport\Step\TransformDataStep;
+use Cobweb\ExternalImport\Step\ValidateDataStep;
+use Cobweb\ExternalImport\Transformation\DateTimeTransformation;
+use Cobweb\ExternalImport\Transformation\ImageTransformation;
+use Cobweb\ExternalimportTest\Step\EnhanceDataStep;
+use Cobweb\ExternalimportTest\UserFunction\Transformation;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 return [
     'ctrl' => [
         'title' => 'Products',
@@ -27,8 +35,8 @@ return [
                 'priority' => 5100,
                 'customSteps' => [
                     [
-                        'class' => \Cobweb\ExternalimportTest\Step\EnhanceDataStep::class,
-                        'position' => 'after:' . \Cobweb\ExternalImport\Step\ValidateDataStep::class,
+                        'class' => EnhanceDataStep::class,
+                        'position' => 'after:' . ValidateDataStep::class,
                         'parameters' => [
                             'tag' => ' (base)'
                         ]
@@ -95,8 +103,8 @@ return [
                 'useColumnIndex' => 'baz',
                 'customSteps' => [
                     [
-                        'class' => \Cobweb\ExternalimportTest\Step\EnhanceDataStep::class,
-                        'position' => 'next:' . \Cobweb\ExternalImport\Step\TransformDataStep::class
+                        'class' => EnhanceDataStep::class,
+                        'position' => 'next:' . TransformDataStep::class
                     ]
                 ],
                 'description' => 'Configuration with errors for testing the general configuration validator'
@@ -166,7 +174,7 @@ return [
                     'transformations' => [
                         10 => [
                             'userFunction' => [
-                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                'class' => Transformation::class,
                                 'method' => 'caseTransformation',
                                 'parameters' => [
                                     'transformation' => 'upper'
@@ -208,7 +216,7 @@ return [
                     'transformations' => [
                         10 => [
                             'userFunction' => [
-                                'class' => \Cobweb\ExternalImport\Transformation\DateTimeTransformation::class,
+                                'class' => DateTimeTransformation::class,
                                 'method' => 'parseDate',
                                 'parameters' => [
                                     'enforceTimeZone' => true
@@ -261,7 +269,7 @@ return [
                     'transformations' => [
                         10 => [
                             'userFunction' => [
-                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                'class' => Transformation::class,
                                 'method' => 'processAttributes'
                             ]
                         ]
@@ -272,7 +280,7 @@ return [
         'pictures' => [
             'exclude' => 0,
             'label' => 'Pictures',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'pictures',
                 [],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
@@ -294,7 +302,7 @@ return [
                     'transformations' => [
                         10 => [
                             'userFunction' => [
-                                'class' => \Cobweb\ExternalImport\Transformation\ImageTransformation::class,
+                                'class' => ImageTransformation::class,
                                 'method' => 'saveImageFromUri',
                                 'parameters' => [
                                     'storage' => '1:imported_images',

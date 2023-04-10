@@ -4,6 +4,9 @@
  * Bundles are used to test MM relations.
  * They also use an additional field in the MM relation to test sorting.
  */
+
+use Cobweb\ExternalimportTest\UserFunction\Transformation;
+
 return [
     'ctrl' => [
         'title' => 'Bundles',
@@ -36,7 +39,7 @@ return [
                     'transformations' => [
                         10 => [
                             'userFunction' => [
-                                'class' => \Cobweb\ExternalimportTest\UserFunction\Transformation::class,
+                                'class' => Transformation::class,
                                 'method' => 'stripPositionMarker'
                             ]
                         ]

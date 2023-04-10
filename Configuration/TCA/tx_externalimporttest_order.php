@@ -1,6 +1,9 @@
 <?php
 
 // Orders are used to test IRRE relations and arrayPath properties
+use Cobweb\ExternalImport\Transformation\DateTimeTransformation;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 return [
     'ctrl' => [
         'title' => 'Orders',
@@ -18,7 +21,7 @@ return [
             0 => [
                 'connector' => 'json',
                 'parameters' => [
-                    'uri' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath(
+                    'uri' => ExtensionManagementUtility::extPath(
                             'externalimport_test'
                         ) . 'Resources/Private/ImportData/Test/Orders.json'
                 ],
@@ -64,7 +67,7 @@ return [
                     'transformations' => [
                         10 => [
                             'userFunction' => [
-                                'class' => \Cobweb\ExternalImport\Transformation\DateTimeTransformation::class,
+                                'class' => DateTimeTransformation::class,
                                 'method' => 'parseDate',
                                 'parameters' => [
                                     'enforceTimeZone' => true
