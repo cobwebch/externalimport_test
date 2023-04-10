@@ -124,12 +124,9 @@ return [
                             'fieldname' => [
                                 'value' => 'picture'
                             ],
-                            'table_local' => [
-                                'value' => 'sys_file'
-                            ]
                         ],
-                        'controlColumnsForUpdate' => 'uid_local, uid_foreign, tablenames, fieldname, table_local',
-                        'controlColumnsForDelete' => 'uid_foreign, tablenames, fieldname, table_local',
+                        'controlColumnsForUpdate' => 'uid_local, uid_foreign, tablenames, fieldname',
+                        'controlColumnsForDelete' => 'uid_foreign, tablenames, fieldname',
                     ]
                 ]
             ]

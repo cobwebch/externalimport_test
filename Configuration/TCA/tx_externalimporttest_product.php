@@ -322,16 +322,13 @@ return [
                             'fieldname' => [
                                 'value' => 'pictures'
                             ],
-                            'table_local' => [
-                                'value' => 'sys_file'
-                            ]
                         ],
                         'sorting' => [
                             'source' => 'picture_order',
                             'target' => 'sorting_foreign'
                         ],
-                        'controlColumnsForUpdate' => 'uid_local, uid_foreign, tablenames, fieldname, table_local',
-                        'controlColumnsForDelete' => 'uid_foreign, tablenames, fieldname, table_local'
+                        'controlColumnsForUpdate' => 'uid_local, uid_foreign, tablenames, fieldname',
+                        'controlColumnsForDelete' => 'uid_foreign, tablenames, fieldname'
                     ]
                 ]
             ]
@@ -401,9 +398,16 @@ return [
                 'foreign_table' => 'tx_externalimporttest_designer',
                 'MM' => 'tx_externalimporttest_product_designer_mm'
             ]
+        ],
+        'categories' => [
+            'exclude' => 0,
+            'label' => 'Designers',
+            'config' => [
+                'type' => 'category',
+            ],
         ]
     ],
     'types' => [
-        '0' => ['showitem' => 'name, path_segment, created, sku, tags, attributes, pictures, stores, designers']
+        '0' => ['showitem' => 'name, path_segment, created, sku, tags, attributes, pictures, stores, designers, categories']
     ],
 ];
