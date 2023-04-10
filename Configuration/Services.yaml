@@ -4,3 +4,15 @@ services:
       - name: event.listener
         identifier: 'processParameters'
         event: Cobweb\ExternalImport\Event\ProcessConnectorParametersEvent
+
+  Cobweb\ExternalimportTest\Command\ImportCommand:
+    tags:
+      - name: 'console.command'
+        command: 'externalimportest:import'
+        description: 'Runs External Import using its import API for testing purposes.'
+
+  Cobweb\ExternalimportTest\Command\CleanupCommand:
+    tags:
+      - name: 'console.command'
+        command: 'externalimportest:cleanup'
+        description: 'Cleans up all the test data, optionnally also the logs.'
