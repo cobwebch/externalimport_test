@@ -17,7 +17,7 @@ $EM_CONF[$_EXTKEY] = [
     'clearCacheOnLoad' => 1,
     'lockType' => '',
     'author_company' => '',
-    'version' => '0.12.0',
+    'version' => '0.12.1',
     'constraints' =>
         [
             'depends' =>
@@ -26,7 +26,7 @@ $EM_CONF[$_EXTKEY] = [
                     'svconnector_feed' => '4.0.0-0.0.0',
                     'svconnector_csv' => '4.0.0-0.0.0',
                     'svconnector_json' => '4.0.0-0.0.0',
-                    'typo3' => '12.4.0-12.4.99',
+                    'typo3' => '11.5.0-12.4.99',
                 ],
             'conflicts' =>
                 [
