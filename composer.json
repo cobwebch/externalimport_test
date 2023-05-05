@@ -19,7 +19,7 @@
 	},
 	"require": {
 		"typo3/cms-core": "^11.5 || ^12.4",
-		"cobweb/external_import": "^7.0 || dev-develop",
+		"cobweb/external_import": "^7.0 || dev-develop || dev-master",
 		"cobweb/svconnector_csv": "^4.0 || dev-develop || dev-master",
 		"cobweb/svconnector_feed": "^4.0 || dev-develop || dev-master",
 		"cobweb/svconnector_json": "^4.0 || dev-develop || dev-master"
