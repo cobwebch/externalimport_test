@@ -41,4 +41,14 @@ class EnhanceDataStep extends AbstractStep
         // Set the filtered records as preview data
         $this->importer->setPreviewData($records);
     }
+
+    /**
+     * Define the data as being downloadable
+     *
+     * @return bool
+     */
+    public function hasDownloadableData(): bool
+    {
+        return true;
+    }
 }
