@@ -28,6 +28,7 @@ return [
                 ],
                 'data' => 'array',
                 'referenceUid' => 'store_code',
+                'columnsOrder' => 'name, store_code',
                 'priority' => 5400,
                 'description' => 'List of stores'
             ]
