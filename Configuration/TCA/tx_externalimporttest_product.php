@@ -260,7 +260,8 @@ return [
             'config' => [
                 'type' => 'text',
                 'rows' => 5,
-                'cols' => 40
+                'cols' => 40,
+                'eval' => 'null',
             ],
             'external' => [
                 'base' => [
@@ -270,12 +271,17 @@ return [
                         10 => [
                             'userFunction' => [
                                 'class' => Transformation::class,
-                                'method' => 'processAttributes'
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                'method' => 'processAttributes',
+                            ],
+                        ],
+                        20 => [
+                            'isEmpty' => [
+                                'default' => null,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
         'pictures' => [
             'exclude' => 0,
