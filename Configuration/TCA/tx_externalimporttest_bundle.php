@@ -105,6 +105,25 @@ return [
                 ]
             ]
         ],
+        'notes' => [
+            'exclude' => 0,
+            'label' => 'Notes',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'null,trim',
+            ],
+            'external' => [
+                0 => [
+                    'field' => 'notes',
+                    'transformations' => [
+                        10 => [
+                            'trim' => true
+                        ]
+                    ]
+                ]
+            ]
+        ],
         'products' => [
             'exclude' => 0,
             'label' => 'Products',
@@ -136,6 +155,6 @@ return [
         ]
     ],
     'types' => [
-        '0' => ['showitem' => 'name,code,maker,products']
+        '0' => ['showitem' => 'name,code,maker,notes,products']
     ],
 ];

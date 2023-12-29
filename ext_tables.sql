@@ -69,7 +69,8 @@ CREATE TABLE tx_externalimporttest_bundle (
 	name varchar(255) DEFAULT '' NOT NULL,
 	products int(11) DEFAULT '0' NOT NULL,
 	bundle_code char(10) DEFAULT '' NOT NULL,
-	maker varchar(255) DEFAULT '' NOT NULL
+	maker varchar(255) DEFAULT '' NOT NULL,
+	notes varchar(255) DEFAULT NULL
 );
 
 #

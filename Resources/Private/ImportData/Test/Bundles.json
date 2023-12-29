@@ -4,6 +4,7 @@
     "maker": {
       "name": "Doctor Strange"
     },
+    "notes": "This will make you very happy",
     "code": "JOY01",
     "product": "000101",
     "position": "#1"
@@ -13,6 +14,7 @@
     "maker": {
       "name": "Doctor Strange"
     },
+    "notes": "This will make you very happy",
     "code": "JOY01",
     "product": "000102",
     "position": "#2"
@@ -22,6 +24,7 @@
     "maker": {
       "name": "Loki"
     },
+    "notes": "Maybe you don't want this bundle at all",
     "code": "PAIN01",
     "product": "000005",
     "position": "#2"
@@ -31,6 +34,7 @@
     "maker": {
       "name": "Loki"
     },
+    "notes": "Maybe you don't want this bundle at all",
     "code": "PAIN01",
     "product": "000001",
     "position": "#1"
@@ -40,6 +44,7 @@
     "maker": {
       "name": "Mad Max"
     },
+    "notes": null,
     "code": "PAIN02",
     "product": "000005",
     "position": "#4"
@@ -49,6 +54,7 @@
     "maker": {
       "name": "Mad Max"
     },
+    "notes": null,
     "code": "PAIN02",
     "product": "000001",
     "position": "#2"
@@ -58,6 +64,7 @@
     "maker": {
       "name": "Mad Max"
     },
+    "notes": null,
     "code": "PAIN02",
     "product": "000202",
     "position": "#1"
@@ -67,6 +74,7 @@
     "maker": {
       "name": "Mad Max"
     },
+    "notes": null,
     "code": "PAIN02",
     "product": "000201",
     "position": "#3"
