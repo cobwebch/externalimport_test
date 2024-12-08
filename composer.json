@@ -18,11 +18,11 @@
 		}
 	},
 	"require": {
-		"typo3/cms-core": "^11.5 || ^12.4",
+		"typo3/cms-core": "^12.4 || ^13.4",
 		"cobweb/external_import": "^7.2 || dev-develop || dev-master",
-		"cobweb/svconnector_csv": "^4.0 || dev-develop || dev-master",
-		"cobweb/svconnector_feed": "^4.0 || dev-develop || dev-master",
-		"cobweb/svconnector_json": "^4.0 || dev-develop || dev-master"
+		"cobweb/svconnector_csv": "^5.0 || dev-develop || dev-master",
+		"cobweb/svconnector_feed": "^5.0 || dev-develop || dev-master",
+		"cobweb/svconnector_json": "^5.0 || dev-develop || dev-master"
 	},
 	"extra": {
 		"typo3/cms": {
