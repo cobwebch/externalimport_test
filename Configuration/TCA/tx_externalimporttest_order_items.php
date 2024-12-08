@@ -4,7 +4,6 @@ return [
     'ctrl' => [
         'title' => 'Order items',
         'label' => 'uid_local',
-        'cruser_id' => 'cruser_id',
         'crdate' => 'crdate',
         'tstamp' => 'tstamp',
         'typeicon_classes' => [
@@ -16,8 +15,7 @@ return [
             'exclude' => 0,
             'label' => 'Order',
             'config' => [
-                'type' => 'input',
-                'eval' => 'int',
+                'type' => 'number',
                 'size' => 10
             ]
         ],
@@ -36,8 +34,7 @@ return [
             'exclude' => 0,
             'label' => 'Quantity',
             'config' => [
-                'type' => 'input',
-                'eval' => 'int'
+                'type' => 'number'
             ]
         ]
     ],
