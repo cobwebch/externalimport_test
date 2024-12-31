@@ -8,9 +8,11 @@ return [
         'label_alt_force' => true,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'typeicon_classes' => [
             'default' => 'tx_externalimporttest-order'
+        ],
+        'security' => [
+            'ignorePageTypeRestriction' => true,
         ],
     ],
     'types' => [
@@ -42,9 +44,8 @@ return [
         'stock' => [
             'label' => 'Stock',
             'config' => [
-                'type' => 'input',
-                'size' => 10,
-                'eval' => 'int'
+                'type' => 'number',
+                'size' => 10
             ]
         ]
     ]

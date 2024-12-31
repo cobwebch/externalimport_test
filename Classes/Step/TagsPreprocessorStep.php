@@ -41,7 +41,7 @@ class TagsPreprocessorStep extends AbstractStep
     {
         $records = $this->getData()->getRecords();
         foreach ($records as $index => $record) {
-            if (strpos($record['name'], '*') !== false) {
+            if (str_contains((string)$record['name'], '*')) {
                 unset($records[$index]);
             }
         }

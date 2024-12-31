@@ -10,7 +10,6 @@ return [
         'label' => 'order_id',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY order_id',
         'typeicon_classes' => [
             'default' => 'tx_externalimporttest-order'
@@ -40,7 +39,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 20,
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+                'required' => true,
             ],
             'external' => [
                 0 => [
@@ -57,9 +57,8 @@ return [
             'exclude' => 0,
             'label' => 'Order date',
             'config' => [
-                'type' => 'input',
-                'size' => 20,
-                'eval' => 'required,datetime',
+                'type' => 'datetime',
+                'required' => true,
             ],
             'external' => [
                 0 => [
@@ -84,7 +83,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+                'required' => true,
             ],
             'external' => [
                 0 => [

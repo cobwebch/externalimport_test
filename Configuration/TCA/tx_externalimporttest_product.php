@@ -1,12 +1,12 @@
 <?php
 
+use Cobweb\ExternalImport\Importer;
 use Cobweb\ExternalImport\Step\TransformDataStep;
 use Cobweb\ExternalImport\Step\ValidateDataStep;
 use Cobweb\ExternalImport\Transformation\DateTimeTransformation;
 use Cobweb\ExternalImport\Transformation\ImageTransformation;
 use Cobweb\ExternalimportTest\Step\EnhanceDataStep;
 use Cobweb\ExternalimportTest\UserFunction\Transformation;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 return [
     'ctrl' => [
@@ -14,11 +14,13 @@ return [
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY name',
         'typeicon_classes' => [
-            'default' => 'tx_externalimporttest-product'
-        ]
+            'default' => 'tx_externalimporttest-product',
+        ],
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
     ],
     'external' => [
         'general' => [
@@ -98,7 +100,7 @@ return [
             'general_configuration_errors' => [
                 'connector' => 'foo',
                 'data' => 'bar',
-                'dataHandler' => \Cobweb\ExternalImport\Importer::class,
+                'dataHandler' => Importer::class,
                 'pid' => 0,
                 'useColumnIndex' => 'baz',
                 'customSteps' => [
@@ -161,7 +163,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+                'required' => true,
             ],
             'external' => [
                 'base' => [
@@ -206,9 +209,7 @@ return [
             'exclude' => false,
             'label' => 'Date of creation',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime'
+                'type' => 'datetime'
             ],
             'external' => [
                 'base' => [
@@ -261,7 +262,7 @@ return [
                 'type' => 'text',
                 'rows' => 5,
                 'cols' => 40,
-                'eval' => 'null',
+                'nullable' => true,
             ],
             'external' => [
                 'base' => [
@@ -286,11 +287,10 @@ return [
         'pictures' => [
             'exclude' => 0,
             'label' => 'Pictures',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'pictures',
-                [],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
+            'config' => [
+                'type' => 'file',
+                'allowed' => 'common-image-types',
+            ],
             'external' => [
                 'base' => [
                     'xpath' => 'pictures/picture',
@@ -410,8 +410,8 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_externalimporttest_designer',
-                'MM' => 'tx_externalimporttest_product_designer_mm'
-            ]
+                'MM' => 'tx_externalimporttest_product_designer_mm',
+            ],
         ],
         'categories' => [
             'exclude' => 0,
@@ -419,7 +419,21 @@ return [
             'config' => [
                 'type' => 'category',
             ],
-        ]
+            'external' => [
+                'base' => [
+                    'xpath' => './self::*[@type="current"]/category',
+                    'transformations' => [
+                        10 => [
+                            'mapping' => [
+                                'table' => 'sys_category',
+                                'referenceField' => 'external_key',
+                                'default' => '',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
     'types' => [
         '0' => ['showitem' => 'name, path_segment, created, sku, tags, attributes, pictures, stores, designers, categories']

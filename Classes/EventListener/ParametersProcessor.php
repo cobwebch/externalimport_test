@@ -32,7 +32,7 @@ class ParametersProcessor
         $parameters = $event->getParameters();
         foreach ($parameters as $key => $value) {
             // Remove the "SILLYMARKER" string from the "uri" parameter, if it exists
-            if ($key === 'uri' && strpos($value, 'SILLYMARKER') !== false) {
+            if ($key === 'uri' && str_contains((string)$value, 'SILLYMARKER')) {
                 $parameters[$key] = str_replace('SILLYMARKER', '', $value);
             }
         }

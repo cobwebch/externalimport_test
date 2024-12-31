@@ -1,5 +1,6 @@
 <?php
-namespace Cobweb\ExternalimportTest\Command;
+
+declare(strict_types = 1);
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -14,13 +15,15 @@ namespace Cobweb\ExternalimportTest\Command;
  * The TYPO3 project - inspiring people to share!
  */
 
+namespace Cobweb\ExternalimportTest\Command;
+
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use Cobweb\ExternalImport\Importer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Core\Bootstrap;
-use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -86,7 +89,7 @@ class ImportCommand extends Command
                 $outputTable
         );
 
-        if (count($result[AbstractMessage::ERROR]) > 0 || count($result[AbstractMessage::WARNING]) > 0) {
+        if (count($result[ContextualFeedbackSeverity::ERROR->value]) > 0 || count($result[ContextualFeedbackSeverity::WARNING->value]) > 0) {
             return Command::FAILURE;
         }
         return Command::SUCCESS;

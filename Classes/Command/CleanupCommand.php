@@ -81,44 +81,26 @@ class CleanupCommand extends Command
         // Clean up tables where all records can be deleted
         foreach ($this->tablesToCleanUp as $table) {
             $queryBuilder = $connectionPool->getQueryBuilderForTable($table);
-            $recordsDeleted += $queryBuilder->delete($table)
-                ->execute();
+            $recordsDeleted += $queryBuilder->delete($table)->executeStatement();
         }
         // Some tables require finer control
         $queryBuilder = $connectionPool->getQueryBuilderForTable('sys_file_reference');
         $recordsDeleted += $queryBuilder->delete('sys_file_reference')
             ->where(
                 $queryBuilder->expr()->eq('tablenames', $queryBuilder->createNamedParameter('tx_externalimporttest_designer'))
-            )
-            ->orWhere(
-                $queryBuilder->expr()->eq('tablenames', $queryBuilder->createNamedParameter('tx_externalimporttest_product'))
-            )
-            ->execute();
+            )->orWhere($queryBuilder->expr()->eq('tablenames', $queryBuilder->createNamedParameter('tx_externalimporttest_product')))->executeStatement();
         $queryBuilder = $connectionPool->getQueryBuilderForTable('sys_file');
-        $recordsDeleted += $queryBuilder->delete('sys_file')
-            ->where(
-                $queryBuilder->expr()->like('identifier', $queryBuilder->createNamedParameter('/imported_images/%'))
-            )
-            ->execute();
+        $recordsDeleted += $queryBuilder->delete('sys_file')->where($queryBuilder->expr()->like('identifier', $queryBuilder->createNamedParameter('/imported_images/%')))->executeStatement();
         $queryBuilder = $connectionPool->getQueryBuilderForTable('pages');
-        $recordsDeleted += $queryBuilder->delete('pages')
-            ->where(
-                $queryBuilder->expr()->neq('product_sku', $queryBuilder->createNamedParameter(''))
-            )
-            ->execute();
+        $recordsDeleted += $queryBuilder->delete('pages')->where($queryBuilder->expr()->neq('product_sku', $queryBuilder->createNamedParameter('')))->executeStatement();
         $queryBuilder = $connectionPool->getQueryBuilderForTable('sys_category');
-        $recordsDeleted += $queryBuilder->delete('sys_category')
-            ->where(
-                $queryBuilder->expr()->neq('external_key', $queryBuilder->createNamedParameter(''))
-            )
-            ->execute();
+        $recordsDeleted += $queryBuilder->delete('sys_category')->where($queryBuilder->expr()->neq('external_key', $queryBuilder->createNamedParameter('')))->executeStatement();
 
         // If requested, also empty the logs table
         $logs = $input->getOption('logs');
         if ($logs) {
             $queryBuilder = $connectionPool->getQueryBuilderForTable('tx_externalimport_domain_model_log');
-            $recordsDeleted += $queryBuilder->delete('tx_externalimport_domain_model_log')
-                ->execute();
+            $recordsDeleted += $queryBuilder->delete('tx_externalimport_domain_model_log')->executeStatement();
         }
 
         $io->success(

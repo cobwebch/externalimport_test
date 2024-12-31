@@ -7,7 +7,6 @@ return [
         'label' => 'invoice_id',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY invoice_id',
         'typeicon_classes' => [
             'default' => 'tx_externalimporttest-invoice'
@@ -40,7 +39,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 20,
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+                'required' => true,
             ],
             'external' => [
                 0 => [
@@ -83,9 +83,10 @@ return [
             'exclude' => 0,
             'label' => 'Amount',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 20,
-                'eval' => 'required,double2',
+                'format' => 'decimal',
+                'required' => true,
             ],
             'external' => [
                 0 => [
@@ -100,7 +101,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 5,
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+                'required' => true,
             ],
             'external' => [
                 0 => [

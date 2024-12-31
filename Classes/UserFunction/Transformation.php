@@ -1,6 +1,6 @@
 <?php
+
 declare(strict_types=1);
-namespace Cobweb\ExternalimportTest\UserFunction;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -15,14 +15,14 @@ namespace Cobweb\ExternalimportTest\UserFunction;
  * The TYPO3 project - inspiring people to share!
  */
 
+namespace Cobweb\ExternalimportTest\UserFunction;
+
+use Cobweb\ExternalImport\Exception\InvalidRecordException;
 use Cobweb\ExternalImport\ImporterAwareInterface;
 use Cobweb\ExternalImport\ImporterAwareTrait;
 
 /**
  * Example user functions for the 'externalimport_test' extension
- *
- * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package TYPO3
  */
 class Transformation implements ImporterAwareInterface
 {
@@ -72,12 +72,12 @@ class Transformation implements ImporterAwareInterface
      * @param string $index The index of the field to transform
      * @param array $params Additional parameters from the TCA
      * @return string
-     * @throws \Cobweb\ExternalImport\Exception\InvalidRecordException
+     * @throws InvalidRecordException
      */
     public function checkStoreStatus(array $record, string $index, array $params): string
     {
         if ($record[$index] === 'ko') {
-            throw new \Cobweb\ExternalImport\Exception\InvalidRecordException(
+            throw new InvalidRecordException(
                 'Store status is ko',
                 1628877369
             );

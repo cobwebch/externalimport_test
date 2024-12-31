@@ -1,7 +1,6 @@
 <?php
 
 use Cobweb\ExternalImport\Transformation\ImageTransformation;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 return [
     'ctrl' => [
@@ -9,7 +8,6 @@ return [
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY name',
         'typeicon_classes' => [
             'default' => 'tx_externalimporttest-designer'
@@ -51,7 +49,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+                'required' => true,
             ],
             'external' => [
                 0 => [
@@ -92,7 +91,9 @@ return [
         'picture' => [
             'exclude' => 0,
             'label' => 'Picture',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig('picture'),
+            'config' => [
+                'type' => 'file',
+            ],
             'external' => [
                 0 => [
                     'field' => 'photo',
