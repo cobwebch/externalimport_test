@@ -38,7 +38,7 @@ class Transformation implements ImporterAwareInterface
      */
     public function processAttributes(array $record, string $index, array $params): string
     {
-        $html = $record[$index];
+        $html = $record[$index] ?? '';
         if (empty($html)) {
             return '';
         }
@@ -62,7 +62,11 @@ class Transformation implements ImporterAwareInterface
      */
     public function stripPositionMarker(array $record, string $index, array $params): string
     {
-        return str_replace('#', '', $record[$index]);
+        return str_replace(
+            '#',
+            '',
+            $record[$index] ? (string)$record[$index] : ''
+        );
     }
 
     /**
@@ -76,7 +80,7 @@ class Transformation implements ImporterAwareInterface
      */
     public function checkStoreStatus(array $record, string $index, array $params): string
     {
-        if ($record[$index] === 'ko') {
+        if (($record[$index] ?? '') === 'ko') {
             throw new InvalidRecordException(
                 'Store status is ko',
                 1628877369
@@ -95,7 +99,7 @@ class Transformation implements ImporterAwareInterface
      */
     public function caseTransformation(array $record, string $index, array $params): string
     {
-        $value = (string)$record[$index];
+        $value = $record[$index] ? (string)$record[$index] : '';
         if (array_key_exists('transformation', $params) && $params['transformation'] === 'upper') {
             return mb_strtoupper($value);
         }
