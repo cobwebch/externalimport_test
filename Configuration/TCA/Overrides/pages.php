@@ -43,6 +43,9 @@ $GLOBALS['TCA']['pages']['external']['general']['product_pages'] = [
 $GLOBALS['TCA']['pages']['columns']['title']['external']['product_pages'] = [
     'field' => 'name'
 ];
+$GLOBALS['TCA']['pages']['columns']['pid']['config'] = [
+    'type' => 'passthrough',
+];
 $GLOBALS['TCA']['pages']['columns']['pid']['external']['product_pages'] = [
     'field' => 'parent_sku',
     'transformations' => [
