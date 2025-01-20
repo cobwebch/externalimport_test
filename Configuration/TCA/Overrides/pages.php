@@ -13,14 +13,14 @@ $newColumn = [
     'product_sku' => [
         'label' => 'Product SKU',
         'config' => [
-            'type' => 'input'
+            'type' => 'input',
         ],
         'external' => [
             'product_pages' => [
-                'field' => 'sku'
-            ]
-        ]
-    ]
+                'field' => 'sku',
+            ],
+        ],
+    ],
 ];
 ExtensionManagementUtility::addTCAcolumns('pages', $newColumn);
 ExtensionManagementUtility::addToAllTCAtypes('pages', 'product_sku');
@@ -32,16 +32,16 @@ $GLOBALS['TCA']['pages']['external']['general']['product_pages'] = [
         'delimiter' => ';',
         'text_qualifier' => '',
         'encoding' => 'utf8',
-        'skip_rows' => 1
+        'skip_rows' => 1,
     ],
     'data' => 'array',
     'referenceUid' => 'product_sku',
     'priority' => 5800,
     'description' => 'Product pages',
-    'clearCache' => 'pages'
+    'clearCache' => 'pages',
 ];
 $GLOBALS['TCA']['pages']['columns']['title']['external']['product_pages'] = [
-    'field' => 'name'
+    'field' => 'name',
 ];
 $GLOBALS['TCA']['pages']['columns']['pid']['config'] = [
     'type' => 'passthrough',
@@ -52,8 +52,8 @@ $GLOBALS['TCA']['pages']['columns']['pid']['external']['product_pages'] = [
         10 => [
             'mapping' => [
                 'table' => 'pages',
-                'referenceField' => 'product_sku'
-            ]
-        ]
-    ]
+                'referenceField' => 'product_sku',
+            ],
+        ],
+    ],
 ];
