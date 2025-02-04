@@ -53,6 +53,10 @@ return [
                 'description' => 'Delete existing tags outside of imported tags'
             ],
             'api' => [
+                'groups' => [
+                    'Products',
+                    'Tags',
+                ],
                 'data' => 'array',
                 'referenceUid' => 'code',
                 'disabledOperations' => 'delete',
