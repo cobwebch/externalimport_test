@@ -25,6 +25,10 @@ return [
                     'encoding' => 'utf8',
                     'skip_rows' => 1
                 ],
+                'groups' => [
+                    'Products',
+                    'Stores',
+                ],
                 'data' => 'array',
                 'referenceUid' => 'store_code',
                 'columnsOrder' => 'name, store_code',

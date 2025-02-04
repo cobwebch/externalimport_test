@@ -28,9 +28,11 @@ return [
                 'connector' => 'feed',
                 'parameters' => [
                     'uri' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/ProductsSILLYMARKER.xml',
-                    'encoding' => 'utf8'
+                    'encoding' => 'utf8',
                 ],
-                'group' => 'Products',
+                'groups' => [
+                    'Products',
+                ],
                 'data' => 'xml',
                 'nodetype' => 'products',
                 'referenceUid' => 'sku',
@@ -40,13 +42,13 @@ return [
                         'class' => EnhanceDataStep::class,
                         'position' => 'after:' . ValidateDataStep::class,
                         'parameters' => [
-                            'tag' => ' (base)'
-                        ]
-                    ]
+                            'tag' => ' (base)',
+                        ],
+                    ],
                 ],
                 // NOTE: this would not make sense in a real-life configuration. A separate pid would be used.
                 'disabledOperations' => 'delete',
-                'description' => 'Products catalogue'
+                'description' => 'Products catalogue',
             ],
             'more' => [
                 'connector' => 'feed',
@@ -54,7 +56,9 @@ return [
                     'uri' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/MoreProducts.xml',
                     'encoding' => 'utf8'
                 ],
-                'group' => 'Products',
+                'groups' => [
+                    'Products',
+                ],
                 'data' => 'xml',
                 'nodetype' => 'products',
                 'referenceUid' => 'sku',
@@ -70,7 +74,9 @@ return [
                     'uri' => 'EXT:externalimport_test/Resources/Private/ImportData/Test/StableProducts.xml',
                     'encoding' => 'utf8'
                 ],
-                'group' => 'Products',
+                'groups' => [
+                    'Products',
+                ],
                 'data' => 'xml',
                 'nodetype' => 'products',
                 'referenceUid' => 'sku',
