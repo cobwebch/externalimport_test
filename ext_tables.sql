@@ -19,7 +19,8 @@ CREATE TABLE tx_externalimporttest_product (
 #
 CREATE TABLE tx_externalimporttest_tag (
 	code varchar(20) default '' not null,
-	name varchar(255) default '' not null
+	name varchar(255) default '' not null,
+    comments text
 );
 
 #

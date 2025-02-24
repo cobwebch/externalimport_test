@@ -11,8 +11,8 @@ return [
         'crdate' => 'crdate',
         'default_sortby' => 'ORDER BY name',
         'typeicon_classes' => [
-            'default' => 'tx_externalimporttest-tag'
-        ]
+            'default' => 'tx_externalimporttest-tag',
+        ],
     ],
     'external' => [
         'general' => [
@@ -23,15 +23,15 @@ return [
                     'delimiter' => ';',
                     'text_qualifier' => '"',
                     'encoding' => 'utf8',
-                    'skip_rows' => 1
+                    'skip_rows' => 1,
                 ],
                 'data' => 'array',
                 'referenceUid' => 'code',
                 'customSteps' => [
                     [
                         'class' => TagsPreprocessorStep::class,
-                        'position' => 'after:' . HandleDataStep::class
-                    ]
+                        'position' => 'after:' . HandleDataStep::class,
+                    ],
                 ],
                 'priority' => 5000,
                 'description' => 'List of tags'
@@ -43,14 +43,14 @@ return [
                     'delimiter' => ';',
                     'text_qualifier' => '"',
                     'encoding' => 'utf8',
-                    'skip_rows' => 1
+                    'skip_rows' => 1,
                 ],
                 'data' => 'array',
                 'referenceUid' => 'code',
                 'useColumnIndex' => 0,
                 'priority' => 5900,
                 'disabledOperations' => 'insert,update',
-                'description' => 'Delete existing tags outside of imported tags'
+                'description' => 'Delete existing tags outside of imported tags',
             ],
             'api' => [
                 'groups' => [
@@ -60,9 +60,19 @@ return [
                 'data' => 'array',
                 'referenceUid' => 'code',
                 'disabledOperations' => 'delete',
-                'description' => 'Tags defined via the import API'
-            ]
-        ]
+                'description' => 'Tags defined via the import API',
+            ],
+            'api-comments' => [
+                'groups' => [
+                    'Products',
+                    'Tags',
+                ],
+                'data' => 'array',
+                'referenceUid' => 'code',
+                'disabledOperations' => 'delete',
+                'description' => 'Comments for tags defined via the import API (for testing group in rections)',
+            ],
+        ],
     ],
     'columns' => [
         'code' => [
@@ -70,16 +80,19 @@ return [
             'label' => 'Code',
             'config' => [
                 'type' => 'input',
-                'size' => 10
+                'size' => 10,
             ],
             'external' => [
                 0 => [
-                    'field' => 'Code'
+                    'field' => 'Code',
                 ],
                 'api' => [
-                    'field' => 'code'
-                ]
-            ]
+                    'field' => 'code',
+                ],
+                'api-comments' => [
+                    'field' => 'code',
+                ],
+            ],
         ],
         'name' => [
             'exclude' => 0,
@@ -96,16 +109,30 @@ return [
                     'transformations' => [
                         10 => [
                             'trim' => true
-                        ]
-                    ]
+                        ],
+                    ],
                 ],
                 'api' => [
                     'field' => 'name'
-                ]
-            ]
+                ],
+            ],
+        ],
+        'comments' => [
+            'exclude' => 0,
+            'label' => 'Comments',
+            'config' => [
+                'type' => 'text',
+            ],
+            'external' => [
+                'api-comments' => [
+                    'field' => 'comments',
+                ],
+            ],
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'name,code']
+        '0' => [
+            'showitem' => 'name, comments, code',
+        ],
     ],
 ];
