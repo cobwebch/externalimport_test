@@ -113,7 +113,6 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
-                'nullable' => true,
             ],
             'external' => [
                 0 => [

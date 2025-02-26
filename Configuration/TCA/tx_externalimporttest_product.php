@@ -268,7 +268,6 @@ return [
                 'type' => 'text',
                 'rows' => 5,
                 'cols' => 40,
-                'nullable' => true,
             ],
             'external' => [
                 'base' => [
