@@ -131,8 +131,24 @@ return [
                 'priority' => 5810,
                 'disabledOperations' => 'insert,delete',
                 'updateSlugs' => true,
-                'description' => 'Update of products (moving to pages, update slug)'
-            ]
+                'description' => 'Update of products (moving to pages, update slug)',
+            ],
+            // Disabled configuration
+            'disabled' => [
+                'disabled' => true,
+                'connector' => 'foo',
+                'data' => 'bar',
+                'dataHandler' => Importer::class,
+                'pid' => 0,
+                'useColumnIndex' => 'baz',
+                'customSteps' => [
+                    [
+                        'class' => EnhanceDataStep::class,
+                        'position' => 'next:' . TransformDataStep::class
+                    ]
+                ],
+                'description' => 'Disabled configuration, should not be visible at all',
+            ],
         ],
         'additionalFields' => [
             'products_for_stores' => [
