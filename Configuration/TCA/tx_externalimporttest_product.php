@@ -137,6 +137,9 @@ return [
             'disabled' => [
                 'disabled' => true,
                 'connector' => 'foo',
+                'groups' => [
+                    'Products',
+                ],
                 'data' => 'bar',
                 'dataHandler' => Importer::class,
                 'pid' => 0,
