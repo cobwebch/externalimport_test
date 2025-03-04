@@ -8,12 +8,12 @@ $EM_CONF[$_EXTKEY] = [
     'author_email' => 'typo3@ideative.ch',
     'state' => 'alpha',
     'author_company' => '',
-    'version' => '0.14.0',
+    'version' => '0.15.0',
     'constraints' =>
         [
             'depends' =>
                 [
-                    'external_import' => '7.2.0-0.0.0',
+                    'external_import' => '8.0.0-0.0.0',
                     'svconnector_feed' => '5.0.0-0.0.0',
                     'svconnector_csv' => '5.0.0-0.0.0',
                     'svconnector_json' => '5.0.0-0.0.0',
