@@ -1,32 +1,37 @@
 {
-	"name": "cobweb/externalimport_test",
-	"type": "typo3-cms-extension",
-	"description": "Test data and scenarios for the External Import extension.",
-	"license": [
-		"GPL-2.0+"
-	],
-	"authors": [
-		{
-			"name": "Francois Suter",
-			"role": "Developer",
-			"homepage": "https://www.ideative.ch/"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"Cobweb\\ExternalimportTest\\": "Classes/"
-		}
-	},
-	"require": {
-		"typo3/cms-core": "^12.4 || ^13.4",
-		"cobweb/external_import": "^8.0 || dev-develop || dev-master",
-		"cobweb/svconnector_csv": "^5.0 || dev-develop || dev-master",
-		"cobweb/svconnector_feed": "^5.0 || dev-develop || dev-master",
-		"cobweb/svconnector_json": "^5.0 || dev-develop || dev-master"
-	},
-	"extra": {
-		"typo3/cms": {
-			"extension-key": "externalimport_test"
-		}
-	}
+  "name": "cobweb/externalimport_test",
+  "type": "typo3-cms-extension",
+  "description": "External Import Test – Test data and scenarios for the External Import extension.",
+  "license": [
+    "GPL-2.0+"
+  ],
+  "authors": [
+    {
+      "name": "Francois Suter",
+      "role": "Developer",
+      "homepage": "https://www.ideative.ch/"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Cobweb\\ExternalimportTest\\": "Classes/"
+    }
+  },
+  "require": {
+    "typo3/cms-core": "^13.4 || ^14.3",
+    "cobweb/external_import": "^8.0 || dev-develop || dev-master",
+    "cobweb/svconnector_csv": "^6.0 || dev-develop || dev-master",
+    "cobweb/svconnector_feed": "^6.0 || dev-develop || dev-master",
+    "cobweb/svconnector_json": "^6.0 || dev-develop || dev-master"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "externalimport_test",
+      "version": "0.16.0-dev",
+      "Package": {
+        "providesPackages": {
+        }
+      }
+    }
+  }
 }

@@ -35,7 +35,7 @@ return [
             'label' => 'Code',
             'config' => [
                 'type' => 'input',
-                'size' => 10
+                'max' => 20
             ],
             'external' => [
                 0 => [

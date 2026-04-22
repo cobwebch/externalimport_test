@@ -80,7 +80,7 @@ return [
             'label' => 'Code',
             'config' => [
                 'type' => 'input',
-                'size' => 10,
+                'max' => 10,
             ],
             'external' => [
                 0 => [

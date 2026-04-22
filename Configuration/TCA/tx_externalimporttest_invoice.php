@@ -100,7 +100,7 @@ return [
             'label' => 'Currency',
             'config' => [
                 'type' => 'input',
-                'size' => 5,
+                'max' => 3,
                 'eval' => 'trim',
                 'required' => true,
             ],
