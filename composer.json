@@ -1,7 +1,7 @@
 {
   "name": "cobweb/externalimport_test",
   "type": "typo3-cms-extension",
-  "description": "External Import Test – Test data and scenarios for the External Import extension.",
+  "description": "External Import Test - Test data and scenarios for the External Import extension.",
   "license": [
     "GPL-2.0+"
   ],
