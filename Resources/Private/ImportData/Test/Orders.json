@@ -9,22 +9,22 @@
             "order": "000001",
             "date": "2020-08-07 14:32",
             "customer": "Conan the Barbarian",
-            "products": [
+            "items": [
               {
-                "product": "000001",
-                "qty": 3
+                "product_code": "000001",
+                "qty": "03"
               },
               {
-                "product": "000005",
-                "qty": 1
+                "product_code": "000005",
+                "qty": "01"
               },
               {
-                "product": "000101",
-                "qty": 10
+                "product_code": "000101",
+                "qty": "10"
               },
               {
-                "product": "000102",
-                "qty": 2
+                "product_code": "000102",
+                "qty": "02"
               }
             ]
           },
@@ -32,24 +32,24 @@
             "order": "000003",
             "date": "2021-03-07 17:56",
             "customer": "Empty basket",
-            "products": []
+            "items": []
           },
           {
             "order": "000002",
             "date": "2020-08-08 06:48",
             "customer": "Sonja the Red",
-            "products": [
+            "items": [
               {
-                "product": "000001",
-                "qty": 1
+                "product_code": "000001",
+                "qty": "01"
               },
               {
-                "product": "000005",
-                "qty": 2
+                "product_code": "000005",
+                "qty": "02"
               },
               {
-                "product": "000202",
-                "qty": 1
+                "product_code": "000202",
+                "qty": "01"
               }
             ]
           }
@@ -62,10 +62,10 @@
             "order": "000021",
             "date": "2021-08-24 12:00",
             "customer": "Refused",
-            "products": [
+            "items": [
               {
-                "product": "000202",
-                "qty": 1
+                "product_code": "000202",
+                "qty": "01"
               }
             ]
           }

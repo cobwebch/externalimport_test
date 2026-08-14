@@ -2,6 +2,7 @@
 
 // Orders are used to test IRRE relations and arrayPath properties
 use Cobweb\ExternalImport\Transformation\DateTimeTransformation;
+use Cobweb\ExternalimportTest\UserFunction\Transformation;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 return [
@@ -12,7 +13,7 @@ return [
         'crdate' => 'crdate',
         'default_sortby' => 'ORDER BY order_id',
         'typeicon_classes' => [
-            'default' => 'tx_externalimporttest-order'
+            'default' => 'tx_externalimporttest-order',
         ],
     ],
     'external' => [
@@ -22,15 +23,30 @@ return [
                 'parameters' => [
                     'uri' => ExtensionManagementUtility::extPath(
                             'externalimport_test'
-                        ) . 'Resources/Private/ImportData/Test/Orders.json'
+                        ) . 'Resources/Private/ImportData/Test/Orders.json',
                 ],
                 'data' => 'array',
                 'arrayPath' => 'data/orders/*{status === \'valid\'}/list',
                 'referenceUid' => 'order_id',
                 'priority' => 5300,
-                'description' => 'List of orders'
-            ]
-        ]
+                'description' => 'List of orders',
+            ],
+        ],
+        'additionalFields' => [
+            0 => [
+                'quantity' => [
+                    'field' => 'order',
+                    'transformations' => [
+                        10 => [
+                            'userFunction' => [
+                                'class' => Transformation::class,
+                                'method' => 'castToInteger',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
     'columns' => [
         'order_id' => [
@@ -47,11 +63,11 @@ return [
                     'field' => 'order',
                     'transformations' => [
                         10 => [
-                            'trim' => true
-                        ]
-                    ]
-                ]
-            ]
+                            'trim' => true,
+                        ],
+                    ],
+                ],
+            ],
         ],
         'order_date' => [
             'exclude' => 0,
@@ -69,13 +85,13 @@ return [
                                 'class' => DateTimeTransformation::class,
                                 'method' => 'parseDate',
                                 'parameters' => [
-                                    'enforceTimeZone' => true
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                    'enforceTimeZone' => true,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
         'client_id' => [
             'exclude' => 0,
@@ -91,11 +107,11 @@ return [
                     'field' => 'customer',
                     'transformations' => [
                         10 => [
-                            'trim' => true
-                        ]
-                    ]
-                ]
-            ]
+                            'trim' => true,
+                        ],
+                    ],
+                ],
+            ],
         ],
         'products' => [
             'exclude' => 0,
@@ -110,51 +126,51 @@ return [
                 'minitems' => 1,
                 'maxitems' => 9999,
                 'appearance' => [
-                    'useSortable' => true
-                ]
+                    'useSortable' => true,
+                ],
             ],
             'external' => [
                 0 => [
-                    'field' => 'products',
+                    'field' => 'items',
                     'substructureFields' => [
                         'products' => [
-                            'field' => 'product'
+                            'field' => 'product_code',
                         ],
                         'quantity' => [
-                            'field' => 'qty'
-                        ]
+                            'field' => 'qty',
+                        ],
                     ],
                     'transformations' => [
                         10 => [
                             'mapping' => [
                                 'table' => 'tx_externalimporttest_product',
-                                'referenceField' => 'sku'
+                                'referenceField' => 'sku',
                             ],
-                        ]
+                        ],
                     ],
                     'children' => [
                         'table' => 'tx_externalimporttest_order_items',
                         'columns' => [
                             'uid_local' => [
-                                'field' => '__parent.id__'
+                                'field' => '__parent.id__',
                             ],
                             'uid_foreign' => [
-                                'field' => 'products'
+                                'field' => 'products',
                             ],
                             'quantity' => [
-                                'field' => 'quantity'
-                            ]
+                                'field' => 'quantity',
+                            ],
                         ],
                         'controlColumnsForUpdate' => 'uid_local, uid_foreign',
-                        'controlColumnsForDelete' => 'uid_local'
-                    ]
-                ]
-            ]
-        ]
+                        'controlColumnsForDelete' => 'uid_local',
+                    ],
+                ],
+            ],
+        ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'order_id, client_id, order_date, products'
-        ]
+            'showitem' => 'order_id, client_id, order_date, products',
+        ],
     ],
 ];

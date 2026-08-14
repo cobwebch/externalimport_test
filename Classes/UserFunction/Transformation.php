@@ -106,4 +106,17 @@ class Transformation implements ImporterAwareInterface
 
         return mb_strtolower($value);
     }
+
+    /**
+     * Cast the given field value to integer
+     *
+     * @param array $record The full record that is being transformed
+     * @param string $index The index of the field to transform
+     * @param array $params Additional parameters from the TCA
+     * @return int
+     */
+    public function castToInteger(array $record, string $index, array $params): int
+    {
+        return (int)($record[$index] ?? 0);
+    }
 }
