@@ -7,7 +7,7 @@ return [
         'crdate' => 'crdate',
         'tstamp' => 'tstamp',
         'typeicon_classes' => [
-            'default' => 'tx_externalimporttest-orderitem'
+            'default' => 'tx_externalimporttest-orderitem',
         ],
     ],
     'columns' => [
@@ -16,8 +16,8 @@ return [
             'label' => 'Order',
             'config' => [
                 'type' => 'number',
-                'size' => 10
-            ]
+                'size' => 10,
+            ],
         ],
         'uid_foreign' => [
             'exclude' => 0,
@@ -27,18 +27,20 @@ return [
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_externalimporttest_product',
                 'foreign_table_where' => 'ORDER BY tx_externalimporttest_product.name',
-                'maxitems' => 1
-            ]
+                'maxitems' => 1,
+            ],
         ],
         'quantity' => [
             'exclude' => 0,
             'label' => 'Quantity',
             'config' => [
-                'type' => 'number'
-            ]
-        ]
+                'type' => 'number',
+            ],
+        ],
     ],
     'types' => [
-        '0' => ['showitem' => 'uid_foreign, quantity']
-    ]
+        '0' => [
+            'showitem' => 'uid_foreign, quantity',
+        ],
+    ],
 ];

@@ -34,7 +34,9 @@ return [
         ],
         'additionalFields' => [
             0 => [
+                // Declare "quantity" from substructure configuration in order to apply a transformation to it
                 'quantity' => [
+                    // Fill with any dummy (but existing) value
                     'field' => 'order',
                     'transformations' => [
                         10 => [
