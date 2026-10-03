@@ -36,8 +36,8 @@ return [
             0 => [
                 // Declare "quantity" from substructure configuration in order to apply a transformation to it
                 'quantity' => [
-                    // Fill with any dummy (but existing) value
-                    'field' => 'order',
+                    // Fill with any dummy value
+                    'value' => 0,
                     'transformations' => [
                         10 => [
                             'userFunction' => [
